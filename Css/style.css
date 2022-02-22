@@ -33,6 +33,10 @@ ul{
 	width: 80px;
 	height: auto;
 }
+.iso__reducido{
+	width: 65px;
+	height: auto;
+}
 .foo__font{
 	color: #F6F3EE;
 }
@@ -80,6 +84,16 @@ footer{
 	display: flex;
 	flex-direction: column;
 	padding-top: 1rem;
+}
+.text__h3{
+	font-size: 37px;
+	color: #FF9900;
+	padding-bottom: 0px;
+}
+.text__h1{
+	font-size: 50px;
+	color: #F6F3EE;
+	padding-top: 0px;
 }
 /*Css Sobre Index*/
 .main{ 
@@ -157,7 +171,8 @@ footer{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	padding-top: 5rem;
+	padding-bottom: 2rem;
+	justify-content: flex-end;
 }
 .botonesco{
 	grid-area: botonesco;
