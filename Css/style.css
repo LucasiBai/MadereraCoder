@@ -394,6 +394,9 @@ footer{
 		justify-content: center;
 		align-items: center;
 	}
+	.main__iso{
+		width: 320px;
+	}
 	.main__section--isoh1{
 		display: flex;
 		flex-direction: column;
@@ -404,14 +407,16 @@ footer{
 	.text__tittle{
 		grid-area: h1;
 		color: #F6F3EE;
-		font-size: 2rem;
+		font-size: 50px;
+		justify-content: center;
 	}
 	.text__description {
 		grid-area: parrafo;
 		color: #F6F3EE;
-		width: 200px;
-		margin: 1rem;
+		width: 290px;
+		margin: 2rem 1rem 1.5rem 1rem;
 		text-align: justify;
+		font-size: 20px;
 	}
 	footer{
 		grid-area: footer;
@@ -484,9 +489,9 @@ footer{
 	}
 	.parrafo__size{
 		width: 300px;
-		height: 276px;
-		padding-top: 20px;
-		padding-bottom: 20px;
+		height: 240px;
+		padding-top: 30px;
+		padding-bottom: 30px;
 	}
 	.img__nosotros{
 		display: flex;
