@@ -98,7 +98,7 @@ footer{
 /*Css Sobre Index*/
 .main{ 
 	grid-area: main;
-	background-image: url("../assets/img/backgroundindex.png");
+	background-image: url("../Assets/Img/backgroundindex.png");
 	background-repeat: no-repeat;
 	background-position: top;
 	background-size: 100% 68%;
@@ -163,7 +163,7 @@ footer{
 	height: 100%;
 }
 .tittle__productos{
-	background-image: url("../assets/img/backgroundproductos.png");
+	background-image: url("../Assets/Img/backgroundproductos.png");
 	background-repeat: no-repeat;
 	background-position: top;
 	background-size: 100% 550px;
@@ -221,8 +221,56 @@ footer{
 	width: 500px;
 }
 /*Css Nosotros*/
+.container__nosotros{
+	display: grid;
+	grid-template-rows: 300px auto;
+	grid-auto-flow: row;
+	grid-template-areas: 
+	"tittlenos tittlenos"
+	"parrafonos imgnos"
+	;
+	width: 100%;
+	height: 100%;
+}
 .nosotros__img{
-	width: 350px;
+	width: 370px;
+	padding-top: 3.5rem;
+	padding-bottom: 2rem;
+}
+.tittle__nosotros{
+	grid-area: tittlenos;
+	background-image: url("../Assets/Img/backgroundnosotros.png");
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: 100% 550px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 2rem;
+	justify-content: flex-end;
+}
+.nosotros__titulo{
+	color: black;
+	font-size: 35px;
+}
+.parrafo__nosotros{
+	grid-area: parrafonos;
+	color: black
+	display:flex;
+	flex-direction: column;
+	padding: 5rem 0px  0px 6rem;
+}
+.img__nosotros{
+	grid-area: imgnos;
+}
+.parrafo__size{
+	width: 535px;
+	height: 142px;
+	padding-top: 10px;
+}
+.parrafo{
+	color: black;
+	font-size: 20px;
 }
 /*Css Carrito*/
 .carrito__img{
@@ -231,8 +279,18 @@ footer{
 .carrito__item{
 	display: inline;
 }
-/*Mobile Queris*/
+/*Media Queris*/
 @media only screen and (max-width: 768px){
+	.text__h3{
+		font-size: 25px;
+		color: #FF9900;
+		padding-bottom: px;
+	}
+	.text__h1{
+		font-size: 40px;
+		color: #F6F3EE;
+		padding-bottom: 2rem;
+	}
 	.container{
 		display: grid;
 		grid-template-columns:1fr;
@@ -259,7 +317,7 @@ footer{
 	}
 	.main{ 
 		grid-area: main;
-		background-image: url("../assets/img/backgroundindex.png");
+		background-image: url("../Assets/Img/backgroundindex.png");
 		background-repeat: no-repeat;
 		background-position: top;
 		background-size: 200% 83%;
@@ -339,4 +397,37 @@ footer{
 	.articulos{
 		margin: 1rem;
 		}
+	.container__nosotros{
+		display: grid;
+		grid-template-rows: 300px auto auto;
+		grid-auto-flow: row;
+		grid-template-areas: 
+		"tittlenos"
+		"parrafonos"
+		"imgnos"
+		;
+		width: 100%;
+		height: 100%;
+	}
+	.tittle__nosotros{
+		background-size: 200% 300px;
+		padding-bottom: 0px;
+	}
+	.parrafo__size{
+		width: 300px;
+		height: 276px;
+		padding-top: 20px;
+	}
+	.img__nosotros{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.parrafo__nosotros{
+		align-items: center;
+		padding: 2.5rem;
+	}
+	.nosotros__img{
+		padding-top: 1rem;
+	}
 }
