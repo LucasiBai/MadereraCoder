@@ -98,7 +98,7 @@ footer{
 /*Css Sobre Index*/
 .main{ 
 	grid-area: main;
-	background-image: url("../Assets/Img/backgroundindex.png");
+	background-image: url("../Assets/Img/backgroundIndex.png");
 	background-repeat: no-repeat;
 	background-position: top;
 	background-size: 100% 68%;
@@ -317,7 +317,7 @@ footer{
 	}
 	.main{ 
 		grid-area: main;
-		background-image: url("../Assets/Img/backgroundindex.png");
+		background-image: url("../Assets/Img/backgroundIndex.png");
 		background-repeat: no-repeat;
 		background-position: top;
 		background-size: 200% 83%;
