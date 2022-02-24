@@ -284,6 +284,7 @@ footer{
 	display: grid;
 	grid-template-rows: 300px auto;
 	grid-auto-flow: row;
+	grid-template-columns: 52% 48%;
 	grid-template-areas: 
 	"tittlecon tittlecon"
 	"seccacon formulario"
@@ -297,7 +298,6 @@ footer{
 	background-repeat: no-repeat;
 	background-position: top;
 	background-size: 100% 550px;
-	grid-template-columns: 45% 55%;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -308,6 +308,9 @@ footer{
 	grid-area: seccacon;
 	margin-left: 7rem;
 	margin-top: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .formularios{
 	grid-area: formulario;
@@ -316,11 +319,10 @@ footer{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
-}
-.button__enviar{
-	align-items: flex-end;
-	display: flex;
+	align-content: flex-start;
+	width: 420px;
+	margin-top: 5rem;
+	margin-bottom: 3rem;
 }
 .contacto__img{
 	width: 270px;
@@ -334,6 +336,16 @@ footer{
 	font-size: 25px;
 	color: black;
 	margin-bottom: 2rem;
+}
+.contform{
+	margin: 3px;
+	padding: 12px;
+}
+.contform__consulta{
+	margin: 3px;
+	padding: 12px;
+	padding-bottom: 100px;
+	resize: none;
 }
 /*Media Queris*/
 @media only screen and (max-width: 768px){
@@ -474,7 +486,7 @@ footer{
 		width: 300px;
 		height: 276px;
 		padding-top: 20px;
-		padding-bottom: 5px;
+		padding-bottom: 20px;
 	}
 	.img__nosotros{
 		display: flex;
@@ -490,4 +502,33 @@ footer{
 		padding-top: 1rem;
 		width: 300px;
 	}
+	.container__contacto{
+		display: grid;
+		grid-template-rows: 300px auto;
+		grid-auto-flow: row;
+		grid-template-areas: 
+		"tittlecon"
+		"seccacon"
+		"formulario"
+		;
+		width: 100%;
+		height: 100%;
+	}
+	.tittle__contacto{
+		background-size: 200% 300px;
+		padding-bottom: 0px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+	}
+	.formulariosa{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-content: center;
+		width: 300px;
+		margin-top: 5rem;
+		margin-bottom: 3rem;
+	}
+
 }
