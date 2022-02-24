@@ -511,6 +511,7 @@ footer{
 		display: grid;
 		grid-template-rows: 300px auto;
 		grid-auto-flow: row;
+		grid-template-columns: 100%;
 		grid-template-areas: 
 		"tittlecon"
 		"seccacon"
@@ -532,8 +533,15 @@ footer{
 		justify-content: center;
 		align-content: center;
 		width: 300px;
-		margin-top: 5rem;
-		margin-bottom: 3rem;
+		margin: 2.5rem;
 	}
-
+	.sectiona__contacto{
+		margin: 3rem 1rem 0rem 1rem;
+	}
+	.formularios{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }
