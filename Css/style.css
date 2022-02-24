@@ -279,6 +279,62 @@ footer{
 .carrito__item{
 	display: inline;
 }
+/*Css Contacto*/
+.container__contacto{
+	display: grid;
+	grid-template-rows: 300px auto;
+	grid-auto-flow: row;
+	grid-template-areas: 
+	"tittlecon tittlecon"
+	"seccacon formulario"
+	;
+	width: 100%;
+	height: 100%;
+}
+.tittle__contacto{
+	grid-area: tittlecon;
+	background-image: url("../Assets/Img/backgroundcontacto.png");
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: 100% 550px;
+	grid-template-columns: 45% 55%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 2rem;
+	justify-content: flex-end;
+}
+.sectiona__contacto{
+	grid-area: seccacon;
+	margin-left: 7rem;
+	margin-top: 3rem;
+}
+.formularios{
+	grid-area: formulario;
+}
+.formulariosa{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.button__enviar{
+	align-items: flex-end;
+	display: flex;
+}
+.contacto__img{
+	width: 270px;
+	margin-bottom: 3rem;
+}
+.contacto__subtittlea{
+	font-size: 20px;
+	color: black;
+}
+.contacto__subtittleb{
+	font-size: 25px;
+	color: black;
+	margin-bottom: 2rem;
+}
 /*Media Queris*/
 @media only screen and (max-width: 768px){
 	.text__h3{
@@ -287,7 +343,7 @@ footer{
 		padding-bottom: px;
 	}
 	.text__h1{
-		font-size: 40px;
+		font-size: 35px;
 		color: #F6F3EE;
 		padding-bottom: 2rem;
 	}
@@ -355,7 +411,7 @@ footer{
 		"fooredes"
 		"foocontacto"
 		;
-		width: 100%;
+		width: 95.5%;
 		height: 100%;
 		padding-top: 1.8rem;
 		padding-left: 1rem;
@@ -412,11 +468,13 @@ footer{
 	.tittle__nosotros{
 		background-size: 200% 300px;
 		padding-bottom: 0px;
+		width: 100%
 	}
 	.parrafo__size{
 		width: 300px;
 		height: 276px;
 		padding-top: 20px;
+		padding-bottom: 5px;
 	}
 	.img__nosotros{
 		display: flex;
@@ -426,8 +484,10 @@ footer{
 	.parrafo__nosotros{
 		align-items: center;
 		padding: 2.5rem;
+		width: 290px;
 	}
 	.nosotros__img{
 		padding-top: 1rem;
+		width: 300px;
 	}
 }
