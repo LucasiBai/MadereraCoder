@@ -15,6 +15,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="container">
 	<header class="header">
@@ -38,11 +39,11 @@
 	<!-- Comienzo del contenido -->
 	<main class="main">
 		<!-- Imagen de Inicio -->
-		<section class="img">
+		<section class="img" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-duration="1100">
 			<img src="Assets/Img/mueble1.jpg" alt="mueble_muestra" class="card card__image">
 		</section>
 		<!-- Texto Inicio -->
-		<div class="main__section">
+		<div class="main__section" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-duration="1100">
 			<!-- Logo -->
 			<div class="main__section--isoh1">
 				<img src="Assets/Img/iso_logo.png" alt="logowood" class="main__iso card__article--position">
@@ -77,5 +78,9 @@
 			</ul>
 		</div>
 	</footer>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+	  AOS.init();
+	</script>
 </body>
 </html>

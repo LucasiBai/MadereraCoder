@@ -15,6 +15,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 	<header class="header">
@@ -57,19 +58,19 @@
 			</div>
 			<!-- Artículos -->
 			<div class="art__productos">
-				<article class="articulos articulos__cajonera">
+				<article data-aos="zoom-in-up" class="articulos articulos__cajonera">
 					<img src="../Assets/Img/cajonera1.jpg" class="articulos__img">
 					<h3 class="articulos__nombre">Cajonera</h3>
 					<h3 class="articulos__clasificacion">Escritorios</h3>
 					<h3 class="articulos__precio">$34.000 - $50.000</h3>
 				</article>
-				<article class="articulos articulos__escritorio">
+				<article data-aos="zoom-in-up" class="articulos articulos__escritorio ">
 					<img src="../Assets/Img/mueble5.jpg" class="articulos__img">
 					<h3 class="articulos__nombre">Escritorio Gamer</h3>
 					<h3 class="articulos__clasificacion">Escritorios</h3>
 					<h3 class="articulos__precio">$75.000</h3>
 				</article>
-				<article class="articulos articulos__estanteria">
+				<article data-aos="zoom-in-up" class="articulos articulos__estanteria">
 					<img src="../Assets/Img/mueble6.jpeg" class="articulos__img">
 					<h3 class="articulos__nombre">Estantería</h3>
 					<h3 class="articulos__clasificacion">Estanterías</h3>
@@ -99,5 +100,9 @@
 			</ul>
 		</div>
 	</footer>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+	  AOS.init();
+	</script>
 </body>
 </html>
