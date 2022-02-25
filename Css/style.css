@@ -428,7 +428,7 @@ footer{
 		"fooredes"
 		"foocontacto"
 		;
-		width: 95.5%;
+		width: 95.7%;
 		height: 100%;
 		padding-top: 1.8rem;
 		padding-left: 1rem;
@@ -485,7 +485,7 @@ footer{
 	.tittle__nosotros{
 		background-size: 200% 300px;
 		padding-bottom: 0px;
-		width: 100%
+		width: 100%;
 	}
 	.parrafo__size{
 		width: 300px;
