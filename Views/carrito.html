@@ -34,22 +34,36 @@
 			</ul>	
 		</nav>
 	</header>
-	<main>
-		<div>
-			<h1 class="text__tittle">Carrito</h1>
+	<main class="container__carrito">
+		<div class="tittle__carrito">
+			<h1 class="text__tittle--carrito">Carrito</h1>
 		</div>
-		<section>
-			<article>
-				<img src="../Assets/Img/mueble5.jpg" alt="escritoriogamer" class="carrito__img carrito__item">
-				<h4 class="text__tittle carrito__item">Escritorio Gamer</h4>
-				<h4 class="text__tittle carrito__item">$75.000</h4>
-				<select class="button button__ordenarpor">
-					<option value="1" >1</option>
-					<option value="2" >2</option>
-					<option value="3" >3</option>
-					<option value="4" >4</option>
-					<option value="5" >5</option>
-				</select>
+		<section class="items__carrito">
+			<article class="carrito__flex">	
+				<div class="items__carrito--text">
+					<img src="../Assets/Img/mueble5.jpg" alt="escritoriogamer" class="carrito__img carrito__item rounded-lg">
+				</div>
+				<div class="items__carrito--text">
+					<h4 class="text__carrito carrito__item">Producto:</h4>
+					<h4 class="text__carrito carrito__item carrito__item--color">Escritorio Gamer</h4>
+				</div>
+				<div class="items__carrito--text">
+					<h4 class="text__carrito carrito__item">Precio:</h4>
+					<h4 class="text__carrito carrito__item carrito__item--color">$75.000</h4>
+				</div>
+				<div class="items__carrito--text carrito__cantidad">
+					<h4 class="text__carrito carrito__item carrito__item--cantidad">Cantidad:</h4>
+					<select class="button select_size button__ordenarpor carrito__item--cantidad">
+						<option value="1" >1</option>
+						<option value="2" >2</option>
+						<option value="3" >3</option>
+						<option value="4" >4</option>
+						<option value="5" >5</option>
+					</select>
+				</div>
+				<div>
+					<button class="button button__size mb-5" type="button" onclick="window.open('productos.html')">Finalizar Compra</button>
+				</div>
 			</article>
 		</section>
 	</main>
