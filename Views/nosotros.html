@@ -15,6 +15,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+	<!-- Animaciones link css -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 	<header class="header">
@@ -39,7 +41,7 @@
 			<h3 class="text__h3">Algo Sobre</h3>
 			<h1 class="text__h1">Nosotros</h1>
 		</div>
-		<div class="parrafo__nosotros">
+		<div class="parrafo__nosotros" data-aos="fade-up" data-aos-duration="1500">
 			<h2 class="nosotros__titulo">Diseños a medida</h2>
 			<p class="parrafo parrafo__size">Somos un grupo de amigos que decidió crear este emprendimiento, aprovechando nuestras capacidades de trabajo en equipo y comunicación. Aseguramos brindar la mejor atención que nos sea posible, y poder hacer realidad lo que nuestros clientes tienen en mente.
 			</p>
@@ -52,7 +54,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="img__nosotros">
+		<div class="img__nosotros" data-aos="fade-up" data-aos-duration="1500">
 			<img class="nosotros__img" src="../Assets/Img/Nosotros.jpg">
 		</div>
 	</main>
@@ -77,5 +79,10 @@
 			</ul>
 		</div>
 	</footer>
+	<!-- Animaciones Js -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+	  AOS.init();
+	</script>
 </body>
 </html>
