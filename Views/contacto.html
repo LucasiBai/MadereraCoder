@@ -15,6 +15,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+	<!-- Animaciones link css -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 	<header class="header">
@@ -40,18 +42,18 @@
 			<h1 class="text__h1">Contacto</h1>
 		</div>
 		<div class="sectiona__contacto">
-			<h3 class="contacto__subtittlea">No tengas miedo de</h3>
-			<h2 class="contacto__subtittleb">Enviarnos tu consulta</h2>
-			<img src="../Assets/Img/Nosotros.jpg" class="contacto__img">	
+			<h3 class="contacto__subtittlea" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="0">No tengas miedo de</h3>
+			<h2 class="contacto__subtittleb" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="0">Enviarnos tu consulta</h2>
+			<img src="../Assets/Img/Nosotros.jpg" class="contacto__img" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="100">	
 		</div>
 		<section class="formularios">
 			<form class="formulariosa" action="#">
-				<input class="contform" type="text" name="nombre_completo" placeholder="Nombre">
-				<input class="contform" type="email" name="mail" placeholder="Email">
-				<input class="contform" type="text" name="teléfono" placeholder="Teléfono">
-				<input class="contform" type="text" name="asunto" placeholder="Asunto">
-				<textarea class="contform__consulta" name="consulta" placeholder="Consulta"></textarea>
-				<input class="button button__enviar" type="submit" name="enviar">
+				<input class="contform" type="text" name="nombre_completo" placeholder="Nombre" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="0">
+				<input class="contform" type="email" name="mail" placeholder="Email" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="50">
+				<input class="contform" type="text" name="teléfono" placeholder="Teléfono" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="100">
+				<input class="contform" type="text" name="asunto" placeholder="Asunto" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="150">
+				<textarea class="contform__consulta" name="consulta" placeholder="Consulta" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="200"></textarea>
+				<input class="button button__enviar" type="submit" name="enviar" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="250">
 			</form>
 		</section>
 	</main>
@@ -76,5 +78,10 @@
 			</ul>
 		</div>
 	</footer>
+	<!-- Animaciones Js -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+	  AOS.init();
+	</script>
 </body>
 </html>

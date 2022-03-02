@@ -15,6 +15,8 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+	<!-- Animaciones link css -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 	<header class="header">
@@ -40,18 +42,18 @@
 		</div>
 		<section class="items__carrito">
 			<article class="carrito__flex">	
-				<div class="items__carrito--flex">
+				<div class="items__carrito--flex" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="0">
 					<img src="../Assets/Img/mueble5.jpg" alt="escritoriogamer" class="carrito__img carrito__item">
 				</div>
-				<div class="items__carrito--flex">
+				<div class="items__carrito--flex" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="50">
 					<h4 class="text__carrito carrito__item carrito__itema">Producto:</h4>
 					<h4 class="text__carrito carrito__item carrito__item--color carrito__itemb">Escritorio Gamer</h4>
 				</div>
-				<div class="items__carrito--flex carrito__precio--m">
+				<div class="items__carrito--flex carrito__precio--m" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="100">
 					<h4 class="text__carrito carrito__item carrito__itema">Precio:</h4>
 					<h4 class="text__carrito carrito__item carrito__item--color carrito__itemb">$75.000</h4>
 				</div>
-				<div class="items__carrito--flex carrito__cantidad">
+				<div class="items__carrito--flex carrito__cantidad" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="150">
 					<h4 class="text__carrito carrito__item carrito__item--cantidad carrito__itema">Cantidad:</h4>
 					<select class="button select_size button__ordenarpor carrito__item--cantidad carrito__itemb">
 						<option value="1" >1</option>
@@ -61,7 +63,7 @@
 						<option value="5" >5</option>
 					</select>
 				</div>
-				<div>
+				<div data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="200">
 					<button class="button button__size mb-5" type="button" onclick="window.open('productos.html')">Finalizar Compra</button>
 				</div>
 			</article>
@@ -88,5 +90,10 @@
 			</ul>
 		</div>
 	</footer>
+	<!-- Animaciones Js -->
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+	  AOS.init();
+	</script>
 </body>
 </html>
