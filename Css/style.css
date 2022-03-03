@@ -439,6 +439,7 @@ footer{
 		flex-direction: column-reverse;
 		justify-content: center;
 		align-items: center;
+		overflow-x: hidden;
 	}
 	.main__iso{
 		width: 320px;
