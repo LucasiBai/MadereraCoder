@@ -1,0 +1,27 @@
+a{
+	text-decoration: none;
+}
+li{
+	list-style-type: none;
+	margin: 0.5rem;
+}
+ul{
+	display: flex;
+}
+.nav__item--color{
+	color: $color__font--primary;
+}
+.nav__item--color:hover{
+	color: $color__font--secondary;
+}
+.header{
+	background-color: $color__primary;
+}
+.iso{
+	width: 80px;
+	height: auto;
+}
+.iso__reducido{
+	width: 65px;
+	height: auto;
+}

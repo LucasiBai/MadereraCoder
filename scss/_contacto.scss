@@ -1,0 +1,67 @@
+.container__contacto{
+	display: grid;
+	grid-template-rows: 300px auto;
+	grid-auto-flow: row;
+	grid-template-columns: 52% 48%;
+	grid-template-areas: 
+	"tittlecon tittlecon"
+	"seccacon formulario"
+	;
+	width: 100%;
+	height: 100%;
+}
+.tittle__contacto{
+	grid-area: tittlecon;
+	background-image: url("../Assets/Img/backgroundcontacto.png");
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: 100% 550px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 2rem;
+	justify-content: flex-end;
+}
+.sectiona__contacto{
+	grid-area: seccacon;
+	margin-left: 7rem;
+	margin-top: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.formularios{
+	grid-area: formulario;
+}
+.formulariosa{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: flex-start;
+	width: 420px;
+	margin-top: 5rem;
+	margin-bottom: 3rem;
+}
+.contacto__img{
+	width: 270px;
+	margin-bottom: 3rem;
+}
+.contacto__subtittlea{
+	font-size: 20px;
+	color: black;
+}
+.contacto__subtittleb{
+	font-size: 25px;
+	color: black;
+	margin-bottom: 2rem;
+}
+.contform{
+	margin: 3px;
+	padding: 12px;
+}
+.contform__consulta{
+	margin: 3px;
+	padding: 12px;
+	padding-bottom: 100px;
+	resize: none;
+}

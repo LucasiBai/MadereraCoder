@@ -1,0 +1,70 @@
+.container__productos{
+	display: grid;
+	grid-template-rows: 300px 100px 500px;
+	grid-auto-flow: row;
+	grid-template-areas: 
+	"tittleprod"
+	"botonesco"
+	"articulos"
+	;
+	width: 100%;
+	height: 100%;
+}
+.tittle__productos{
+	background-image: url("../Assets/Img/backgroundproductos.png");
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: 100% 550px;
+	grid-area: tittleprod;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 2rem;
+	justify-content: flex-end;
+}
+.botonesco{
+	grid-area: botonesco;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-left: 10rem;
+	padding-right: 11rem;
+
+}
+.button__categorías{
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+}
+.art__productos{
+	grid-area: articulos;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.articulos{
+	margin: 0rem 5rem 0rem 5rem;
+}
+.articulos__img{
+	width: 225px;
+	height: 230px;
+}
+.articulos__nombre{
+	font-size: 21px;
+	font-family: 'Inter', sans-serif;
+	margin-bottom: 2px
+}
+.articulos__clasificacion{
+	font-size: 15px;
+	color: grey;
+	font-family: 'Inter', sans-serif;
+	margin: 0px;
+}
+.articulos__precio{
+	font-size: 18px;
+	font-family: 'Inter', sans-serif;
+	margin-top: 8px;
+}
+.contacto__img{
+	width: 500px;
+}
