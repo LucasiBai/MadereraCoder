@@ -6,7 +6,7 @@ li{
 	margin: 0.5rem;
 }
 ul{
-	display: flex;
+	@include flex_d_row;
 }
 .nav__item--color{
 	color: $color__font--primary;

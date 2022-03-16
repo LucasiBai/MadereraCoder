@@ -31,10 +31,9 @@
 	font-size: 35px;
 }
 .parrafo__nosotros{
+	@include flex_d_column;
 	grid-area: parrafonos;
 	color: black;
-	display: flex;
-	flex-direction: column;
 	padding: 5rem 0px  0px 6rem;
 }
 .img__nosotros{

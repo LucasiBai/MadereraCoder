@@ -1,0 +1,31 @@
+$titles:(
+	h1:$color__font--primary,
+	h3:$color__font--secondary
+	);
+
+@each $title, $colortitles in $titles{
+	.text__#{$title}{
+		color: $colortitles;
+	}
+}
+
+$products__name:(
+	name__size: 21px,
+	category__size: 15px,
+	price__size: 18px,
+	);
+
+.articulos__nombre{
+	font-size: map-get($products__name,name__size);
+	color: black;
+}
+
+.articulos__clasificacion{
+	font-size: map-get($products__name,category__size);
+	color: grey;
+}
+
+.articulos__precio{
+	font-size: map-get($products__name,price__size);
+	color: black;
+}

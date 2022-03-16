@@ -31,11 +31,6 @@
 	padding-right: 11rem;
 
 }
-.button__categorías{
-	display: flex;
-	align-items: center;
-	flex-direction: row;
-}
 .art__productos{
 	grid-area: articulos;
 	display: flex;
@@ -50,19 +45,12 @@
 	height: 230px;
 }
 .articulos__nombre{
-	font-size: 21px;
-	font-family: 'Inter', sans-serif;
 	margin-bottom: 2px
 }
 .articulos__clasificacion{
-	font-size: 15px;
-	color: grey;
-	font-family: 'Inter', sans-serif;
 	margin: 0px;
 }
 .articulos__precio{
-	font-size: 18px;
-	font-family: 'Inter', sans-serif;
 	margin-top: 8px;
 }
 .contacto__img{

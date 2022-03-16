@@ -7,7 +7,8 @@ li {
   margin: 0.5rem; }
 
 ul {
-  display: flex; }
+  display: flex;
+  flex-direction: row; }
 
 .nav__item--color {
   color: #F6F3EE; }
@@ -52,13 +53,45 @@ body {
 
 .text__h3 {
   font-size: 37px;
-  color: #FF9900;
   padding-bottom: 0px; }
 
 .text__h1 {
   font-size: 50px;
-  color: #F6F3EE;
   padding-top: 0px; }
+
+.button, .button__categorías, .button__ordenarpor {
+  margin-top: 1rem;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ebe8e4; }
+  .button:hover, .button__categorías:hover, .button__ordenarpor:hover {
+    background-color: #555B53;
+    color: white; }
+
+.button__categorías {
+  display: flex;
+  align-items: center;
+  flex-direction: row; }
+
+.text__h1 {
+  color: #F6F3EE; }
+
+.text__h3 {
+  color: #FF9900; }
+
+.articulos__nombre {
+  font-size: 21px;
+  color: black; }
+
+.articulos__clasificacion {
+  font-size: 15px;
+  color: grey; }
+
+.articulos__precio {
+  font-size: 18px;
+  color: black; }
 
 footer {
   background-color: #3b403a; }
@@ -132,18 +165,6 @@ footer {
   margin: 1rem;
   text-align: justify; }
 
-.button {
-  margin-top: 1rem;
-  margin-left: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  background-color: #ebe8e4; }
-
-.button:hover {
-  background-color: #555B53;
-  color: white; }
-
 .container__productos {
   display: grid;
   grid-template-rows: 300px 100px 500px;
@@ -172,11 +193,6 @@ footer {
   padding-left: 10rem;
   padding-right: 11rem; }
 
-.button__categorías {
-  display: flex;
-  align-items: center;
-  flex-direction: row; }
-
 .art__productos {
   grid-area: articulos;
   display: flex;
@@ -191,19 +207,12 @@ footer {
   height: 230px; }
 
 .articulos__nombre {
-  font-size: 21px;
-  font-family: 'Inter', sans-serif;
   margin-bottom: 2px; }
 
 .articulos__clasificacion {
-  font-size: 15px;
-  color: grey;
-  font-family: 'Inter', sans-serif;
   margin: 0px; }
 
 .articulos__precio {
-  font-size: 18px;
-  font-family: 'Inter', sans-serif;
   margin-top: 8px; }
 
 .contacto__img {
@@ -239,10 +248,10 @@ footer {
   font-size: 35px; }
 
 .parrafo__nosotros {
-  grid-area: parrafonos;
-  color: black;
   display: flex;
   flex-direction: column;
+  grid-area: parrafonos;
+  color: black;
   padding: 5rem 0px  0px 6rem; }
 
 .img__nosotros {
