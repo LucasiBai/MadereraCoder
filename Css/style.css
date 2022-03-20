@@ -556,3 +556,15 @@ footer {
     margin-bottom: 1.5rem; }
   .carrito__precio--m {
     margin-top: 2rem; } }
+
+@media only screen and (min-width: 1700px) {
+  .container__carrito {
+    grid-template-rows: 300px 570px; }
+  .tittle__carrito {
+    display: flex;
+    align-items: center; }
+  .main {
+    background-position: 0px -317px;
+    background-size: 100% 108%; }
+  .container__nosotros {
+    grid-template-rows: 300px 550px; } }
