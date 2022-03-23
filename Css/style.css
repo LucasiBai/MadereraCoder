@@ -218,53 +218,53 @@ footer {
 .contacto__img {
   width: 500px; }
 
-.container__nosotros {
-  display: grid;
-  grid-template-rows: 300px auto;
-  grid-auto-flow: row;
-  grid-template-areas: "tittlenos tittlenos" "parrafonos imgnos";
-  width: 100%;
-  height: 100%; }
+nav {
+  background-color: #555B53; }
 
-.nosotros__img {
-  width: 370px;
-  padding-top: 3.5rem;
-  padding-bottom: 2rem; }
+.foo_boot {
+  width: 100%;
+  margin: 0px;
+  padding: 10px; }
+
+.text__h3 {
+  font-size: 37px;
+  color: #FF9900;
+  margin-top: 5rem; }
+
+.text__h1 {
+  font-size: 50px;
+  color: #F6F3EE;
+  padding-top: 0px; }
 
 .tittle__nosotros {
   grid-area: tittlenos;
   background-image: url("../Assets/Img/backgroundnosotros.png");
   background-repeat: no-repeat;
   background-position: top;
-  background-size: 100% 550px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding-bottom: 2rem;
-  justify-content: flex-end; }
-
-.nosotros__titulo {
-  color: black;
-  font-size: 35px; }
-
-.parrafo__nosotros {
-  display: flex;
-  flex-direction: column;
-  grid-area: parrafonos;
-  color: black;
-  padding: 5rem 0px  0px 6rem; }
+  background-size: 100% 550px; }
 
 .img__nosotros {
-  grid-area: imgnos; }
+  max-width: 40%; }
+
+.parrafo__nosotros {
+  margin-left: 3rem; }
+
+.nosotrosarticle__a {
+  margin-left: 5rem;
+  padding: 0px; }
 
 .parrafo__size {
   width: 535px;
   height: 142px;
-  padding-top: 10px; }
+  margin-top: 2rem; }
 
-.parrafo {
-  color: black;
-  font-size: 20px; }
+.nosotros__parrafo__elemento {
+  margin: 5px; }
+
+.nosotros__img {
+  width: 420px;
+  border-radius: 3.5px;
+  margin: 3rem 0px 3rem 0px; }
 
 .container__carrito {
   display: grid;
@@ -474,33 +474,19 @@ footer {
     justify-content: center; }
   .articulos {
     margin: 1rem; }
-  .container__nosotros {
-    display: grid;
-    grid-template-rows: 300px auto auto;
-    grid-auto-flow: row;
-    grid-template-areas: "tittlenos" "parrafonos" "imgnos";
-    width: 100%;
-    height: 100%; }
+  .nosotrosarticle__a {
+    margin: 0px; }
+  .img__nosotros {
+    max-width: 100%; }
+  .nosotros__img {
+    width: 300px;
+    height: auto;
+    margin-bottom: 2rem; }
+  .parrafo__nosotros {
+    margin-left: 0px; }
   .tittle__nosotros {
     background-size: 200% 300px;
-    padding-bottom: 0px;
-    width: 100%; }
-  .parrafo__size {
-    width: 300px;
-    height: 240px;
-    padding-top: 30px;
-    padding-bottom: 30px; }
-  .img__nosotros {
-    display: flex;
-    align-items: center;
-    justify-content: center; }
-  .parrafo__nosotros {
-    align-items: center;
-    padding: 2.5rem;
-    width: 290px; }
-  .nosotros__img {
-    padding-top: 1rem;
-    width: 300px; }
+    padding-bottom: 0px; }
   .container__contacto {
     display: grid;
     grid-template-rows: 300px auto;

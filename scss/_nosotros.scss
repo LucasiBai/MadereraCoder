@@ -1,18 +1,20 @@
-.container__nosotros{
-	display: grid;
-	grid-template-rows: 300px auto;
-	grid-auto-flow: row;
-	grid-template-areas: 
-	"tittlenos tittlenos"
-	"parrafonos imgnos"
-	;
-	width: 100%;
-	height: 100%;
+nav{
+	background-color: $color__primary;
 }
-.nosotros__img{
-	width: 370px;
-	padding-top: 3.5rem;
-	padding-bottom: 2rem;
+.foo_boot{
+	width: 100%;
+	margin: 0px;
+	padding: 10px;
+}
+.text__h3{
+	font-size: 37px;
+	color: #FF9900;
+	margin-top: 5rem;
+}
+.text__h1{
+	font-size: 50px;
+	color: #F6F3EE;
+	padding-top: 0px;
 }
 .tittle__nosotros{
 	grid-area: tittlenos;
@@ -20,31 +22,27 @@
 	background-repeat: no-repeat;
 	background-position: top;
 	background-size: 100% 550px;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	padding-bottom: 2rem;
-	justify-content: flex-end;
-}
-.nosotros__titulo{
-	color: black;
-	font-size: 35px;
-}
-.parrafo__nosotros{
-	@include flex_d_column;
-	grid-area: parrafonos;
-	color: black;
-	padding: 5rem 0px  0px 6rem;
 }
 .img__nosotros{
-	grid-area: imgnos;
+	max-width: 40%;
+}
+.parrafo__nosotros{
+	margin-left: 3rem;
+}
+.nosotrosarticle__a{
+	margin-left: 5rem;
+	padding: 0px;
 }
 .parrafo__size{
 	width: 535px;
 	height: 142px;
-	padding-top: 10px;
+	margin-top: 2rem;
 }
-.parrafo{
-	color: black;
-	font-size: 20px;
+.nosotros__parrafo__elemento{
+	margin: 5px;
+}
+.nosotros__img{
+	width: 420px;
+	border-radius: 3.5px;
+	margin: 3rem 0px 3rem 0px;
 }

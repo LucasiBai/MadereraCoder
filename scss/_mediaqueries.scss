@@ -122,42 +122,23 @@
 	.articulos{
 		margin: 1rem;
 		}
-	.container__nosotros{
-		display: grid;
-		grid-template-rows: 300px auto auto;
-		grid-auto-flow: row;
-		grid-template-areas: 
-		"tittlenos"
-		"parrafonos"
-		"imgnos"
-		;
-		width: 100%;
-		height: 100%;
+	.nosotrosarticle__a{
+		margin: 0px;
+	}
+	.img__nosotros{
+		max-width: 100%;
+	}
+	.nosotros__img{
+		width: 300px;
+		height: auto;
+		margin-bottom: 2rem;
+	}
+	.parrafo__nosotros{
+		margin-left: 0px;
 	}
 	.tittle__nosotros{
 		background-size: 200% 300px;
 		padding-bottom: 0px;
-		width: 100%;
-	}
-	.parrafo__size{
-		width: 300px;
-		height: 240px;
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-	.img__nosotros{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.parrafo__nosotros{
-		align-items: center;
-		padding: 2.5rem;
-		width: 290px;
-	}
-	.nosotros__img{
-		padding-top: 1rem;
-		width: 300px;
 	}
 	.container__contacto{
 		display: grid;

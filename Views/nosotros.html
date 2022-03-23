@@ -16,72 +16,91 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+	<!-- Link a Bootstrap Css-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 	<!-- Animaciones link css -->
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<!-- Css Linkeado -->
 	<link rel="stylesheet" href="../Css/style.css">
 </head>
-<body>
-	<header class="header">
-		<!-- Logo del header -->
-		<div>
-			<a href="../index.html"><img src="../Assets/Img/iso.png" alt="logo" class="iso iso__reducido"></a>
-		</div>
+<body class="container-fluid h-100">
+	<header class="row h-15">
 		<!-- Barra de navegación -->
-		<nav>
-			<ul class="header__nav nav--background">
-				<li class="header__nav--item nav__item--background nav__item--color nav__item--text"><a href="../index.html" class="nav__item--color nav__item--text">Home</a></li>
-				<li class="header__nav--item nav__item--background nav__item--color nav__item--text"><a href="productos.html" class="nav__item--color nav__item--text">Productos</a></li>
-				<li class="header__nav--item nav__item--background nav__item--color nav__item--text"><a href="#" class="nav__item--color nav__item--text">Nosotros</a></li>
-				<li class="header__nav--item nav__item--background"><a href="contacto.html" class="nav__item--color nav__item--text">Contacto</a></li>
-				<!-- Carrito con ícono -->
-				<li class="header__nav--item nav__item--background nav__item--color nav__item--text"><a href="carrito.html" class="nav__item--color nav__item--text">Carrito<i class="fas fa-cart-plus"></i></a></li>
-			</ul>	
+		<nav class="navbar navbar-expand-lg navbar-light  col-12 col-lg-12 nav__flex">
+			<!-- Logo del header -->
+			<div class="navbar-brand ml-4">
+				<a href="../index.html"><img src="../Assets/Img/iso.png" alt="logo" class="iso__reducido"></a>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+				<ul class="navbar-nav nav__items mr-5">
+				    <li class="nav-item active">
+				    <a class="nav-link text-light" href="../index.html">Home <span class="sr-only">(current)</span></a>
+				    </li>
+				    <li class="nav-item">
+				    <a class="nav-link text-light" href="productos.html">Productos</a>
+				    </li>
+				    <li class="nav-item">
+				    <a class="nav-link text-light" href="#">Nosotros</a>
+				    </li>
+				    <li class="nav-item">
+				    <a class="nav-link text-light" href="contacto.html">Contacto</a>
+				    </li>
+				    <li class="nav-item">
+				    <a class="nav-link text-light" href="carrito.html">Carrito<i class="fas fa-cart-plus"></i></a>
+				    </li>
+				</ul>
+			</div>
 		</nav>
-	</header>
-	<main class="container__nosotros">
-		<div class="tittle__nosotros">
+	</header> 
+	<main class="row">
+		<div class="tittle__nosotros col-12 d-flex flex-column justify-content-end align-items-center">
 			<h3 class="text__h3">Algo Sobre</h3>
 			<h1 class="text__h1">Nosotros</h1>
 		</div>
-		<div class="parrafo__nosotros" data-aos="fade-up" data-aos-duration="1100">
-			<h2 class="nosotros__titulo">Diseños a medida</h2>
-			<p class="parrafo parrafo__size">Somos un grupo de amigos que decidió crear este emprendimiento, aprovechando nuestras capacidades de trabajo en equipo y comunicación. Aseguramos brindar la mejor atención que nos sea posible, y poder hacer realidad lo que nuestros clientes tienen en mente.
+		<div class="mt-5 col-12 col-lg-6 col-md-6 d-flex flex-column justify-content-center align-items-center align-items-lg-start align-items-md-start nosotrosarticle__a" data-aos="fade-up" data-aos-duration="1100">
+			<h2 class="parrafo__nosotros nosotros__titulo">Diseños a medida</h2>
+			<p class="parrafo__nosotros parrafo__size">Somos un grupo de amigos que decidió crear este emprendimiento, aprovechando nuestras capacidades de trabajo en equipo y comunicación. Aseguramos brindar la mejor atención que nos sea posible, y poder hacer realidad lo que nuestros clientes tienen en mente.
 			</p>
-			<h4 class="parrafo">Unite a nuestra comunidad</h4>
-			<div>
-				<ul>
-					<li><a href="https://www.facebook.com/" class="footer__text" target="_blank"><img src="https://icongr.am/entypo/facebook-with-circle.svg?size=45&color=3b403a" alt="facebookicon"></a></li>
-					<li><a href="https://www.instagram.com/" class="footer__text" target="_blank"><img src="https://icongr.am/entypo/instagram-with-circle.svg?size=45&color=3b403a" alt="instagramicon"></a></li>
-					<li><a href="https://www.youtube.com/" class="footer__text" target="_blank"><img src="https://icongr.am/entypo/youtube-with-circle.svg?size=45&color=3b403a" alt="youtubeicon"></a></li>
+			<h4 class="parrafo__nosotros redes__size">Unite a nuestra comunidad</h4>
+			<div class="parrafo__nosotros">
+				<ul class="d-flex flex-row">
+					<li><a href="https://www.facebook.com/" class="nosotros__parrafo__elemento" target="_blank"><img src="https://icongr.am/entypo/facebook-with-circle.svg?size=45&color=3b403a" alt="facebookicon"></a></li>
+					<li><a href="https://www.instagram.com/" class="nosotros__parrafo__elemento" target="_blank"><img src="https://icongr.am/entypo/instagram-with-circle.svg?size=45&color=3b403a" alt="instagramicon"></a></li>
+					<li><a href="https://www.youtube.com/" class="nosotros__parrafo__elemento" target="_blank"><img src="https://icongr.am/entypo/youtube-with-circle.svg?size=45&color=3b403a" alt="youtubeicon"></a></li>
 				</ul>
 			</div>
 		</div>
-		<div class="img__nosotros" data-aos="fade-up" data-aos-duration="1500">
+		<div class="img__nosotros col-12 col-lg-6 col-md-6 d-flex justify-content-center" data-aos="fade-up" data-aos-duration="1500">
 			<img class="nosotros__img" src="../Assets/Img/Nosotros.jpg">
 		</div>
 	</main>
-	<footer>
+	<footer class="row h-17 foo_boot">
 		<!-- Footer Logo -->
-		<div class="foo__iso">
+		<div class="col-12 col-lg-4 col-md-4 mt-5 mb-5">
 			<a href="../index.html"><img src="../Assets/Img/iso.png" alt="logo" class="iso"></a>
 		</div>
-		<div class="foo__redes">
+		<div class="col-12 col-lg-4 col-md-4 mt-5 mb-5">
 			<!-- Métodos de contacto -->
 			<h4 class="foo__font">Redes Sociales</h4>
 			<ul class="foo__redes--items">
-				<li><a href="https://www.facebook.com/" target="_blank" class="foo__font"><img src="https://icongr.am/entypo/facebook.svg?size=17&color=f6f3ee" alt="facebookicon"> Facebook</a></li>
-				<li><a href="https://www.instagram.com/" target="_blank" class="foo__font"><img src="https://icongr.am/entypo/instagram.svg?size=17&color=f6f3ee" alt="instagramicon"> Instagram</a></li>
-				<li><a href="https://www.youtube.com/" target="_blank" class="foo__font"><img src="https://icongr.am/entypo/youtube.svg?size=17&color=f6f3ee" alt="youtubeicon"> Youtube</a></li>
+				<li class="mt-4 mb-3"><a href="https://www.facebook.com/" target="_blank" class="foo__font text-decoration-none"><img src="https://icongr.am/entypo/facebook.svg?size=17&color=f6f3ee" alt="facebookicon"> Facebook</a></li>
+				<li class="mb-3"><a href="https://www.instagram.com/" target="_blank" class="foo__font text-decoration-none"><img src="https://icongr.am/entypo/instagram.svg?size=17&color=f6f3ee" alt="instagramicon"> Instagram</a></li>
+				<li class="mb-3"><a href="https://www.youtube.com/" target="_blank" class="foo__font text-decoration-none"><img src="https://icongr.am/entypo/youtube.svg?size=17&color=f6f3ee" alt="youtubeicon"> Youtube</a></li>
 			</ul>
 		</div>
-		<div class="foo__contacto">
-			<h4><a href="../Views/contacto.html" class="foo__font">Contacto</a></h4>
+		<div class="col-12 col-lg-4 col-md-4 mt-5 mb-5">
+			<h4><a href="../Views/contacto.html" class="foo__font text-decoration-none">Contacto</a></h4>
 			<ul class="foo__redes--items">
-				<li class="foo__font"><img src="https://icongr.am/entypo/phone.svg?size=17&color=f6f3ee" alt="phoneicon"> +54 1234567</li>
+				<li class="foo__font mt-3"><img src="https://icongr.am/entypo/phone.svg?size=17&color=f6f3ee" alt="phoneicon"> +54 1234567</li>
 			</ul>
 		</div>
 	</footer>
+	<!-- Link Bootstrap js -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 	<!-- Animaciones Js -->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script>
