@@ -70,7 +70,7 @@
 		text-align: justify;
 		font-size: 20px;
 	}
-	footer{
+	.foo__css{
 		grid-area: footer;
 		display: grid;
 		grid-template-rows: auto;
@@ -80,10 +80,28 @@
 		"fooredes"
 		"foocontacto"
 		;
-		width: 95.7%;
+		width: 97.7%;
 		height: 100%;
 		padding-top: 1.8rem;
-		padding-left: 1rem;
+		padding-left: 0.5rem;
+	}
+	.foo__iso{
+		padding: 0px
+	}
+	.iso__foo{
+		width: 100px;
+		margin: 0px;
+	}
+	.foo__redes--items{
+		display: flex;
+		flex-direction: row;
+		justify-content:center;
+		align-items: center;
+	}
+	.foo__center{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	.card__image{
 		width: 300px;
@@ -129,12 +147,16 @@
 		max-width: 100%;
 	}
 	.nosotros__img{
-		width: 300px;
+		width: 80%;
 		height: auto;
-		margin-bottom: 2rem;
+		margin: 2rem 0px 5rem 0px;
 	}
 	.parrafo__nosotros{
 		margin-left: 0px;
+	}
+	.parrafo__size{
+		width: 80%;
+		height: auto;
 	}
 	.tittle__nosotros{
 		background-size: 200% 300px;

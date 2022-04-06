@@ -1,10 +1,14 @@
 footer{
 	background-color: $color__foo;
 }
+.iso__foo{
+	width: 117px;
+	margin: 2rem 0px 2rem 5rem;
+}
 .foo__font{
 	color: $color__font--primary;
 }
-footer{
+.foo__css{
 	grid-area: footer;
 	display: grid;
 	grid-template-rows: auto;

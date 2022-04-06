@@ -32,30 +32,35 @@
 			<ul class="header__nav nav--background">
 				<li class="header__nav--item nav__item--background nav__item--color nav__item--text"><a href="../index.html" class="nav__item--color nav__item--text">Home</a></li>
 				<li class="header__nav--item nav__item--background nav__item--color nav__item--text"><a href="productos.html" class="nav__item--color nav__item--text">Productos</a></li>
-				<li class="header__nav--item nav__item--background nav__item--color nav__item--text"><a href="#" class="nav__item--color nav__item--text">Nosotros</a></li>
+				<li class="header__nav--item nav__item--background nav__item--color nav__item--text"><a href="nosotros.html" class="nav__item--color nav__item--text">Nosotros</a></li>
 				<li class="header__nav--item nav__item--background"><a href="contacto.html" class="nav__item--color nav__item--text">Contacto</a></li>
 				<!-- Carrito con ícono -->
-				<li class="header__nav--item nav__item--background nav__item--color nav__item--text"><a href="carrito.html" class="nav__item--color nav__item--text">Carrito<i class="fas fa-cart-plus"></i></a></li>
+				<li class="header__nav--item nav__item--background nav__item--color nav__item--text"><a href="#" class="nav__item--color nav__item--text">Carrito<i class="fas fa-cart-plus"></i></a></li>
 			</ul>	
 		</nav>
 	</header>
 	<main class="container__carrito">
 		<div class="tittle__carrito">
+			<!-- Título Carrito -->
 			<h1 class="text__tittle--carrito">Carrito</h1>
 		</div>
 		<section class="items__carrito">
 			<article class="carrito__flex">	
+				<!-- Imagen producto -->
 				<div class="items__carrito--flex" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="0">
 					<img src="../Assets/Img/mueble5.jpg" alt="escritoriogamer" class="carrito__img carrito__item">
 				</div>
+				<!-- Nombre Producto -->
 				<div class="items__carrito--flex" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="50">
 					<h4 class="text__carrito carrito__item carrito__itema">Producto:</h4>
 					<h4 class="text__carrito carrito__item carrito__item--color carrito__itemb">Escritorio Gamer</h4>
 				</div>
+				<!-- Precio -->
 				<div class="items__carrito--flex carrito__precio--m" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="100">
 					<h4 class="text__carrito carrito__item carrito__itema">Precio:</h4>
 					<h4 class="text__carrito carrito__item carrito__item--color carrito__itemb">$75.000</h4>
 				</div>
+				<!-- Cantidad y Opciones -->
 				<div class="items__carrito--flex carrito__cantidad" data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="150">
 					<h4 class="text__carrito carrito__item carrito__item--cantidad carrito__itema">Cantidad:</h4>
 					<select class="button select_size button__ordenarpor carrito__item--cantidad carrito__itemb">
@@ -66,18 +71,19 @@
 						<option value="5" >5</option>
 					</select>
 				</div>
+				<!-- Botón de Compra -->
 				<div data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-delay="200">
 					<button class="button button__size mb-5" type="button" onclick="window.open('productos.html')">Finalizar Compra</button>
 				</div>
 			</article>
 		</section>
 	</main>
-	<footer>
+	<footer class="foo__css">
 		<!-- Footer Logo -->
-		<div class="foo__iso">
-			<a href="../index.html"><img src="../Assets/Img/iso.png" alt="logo" class="iso"></a>
+		<div class="foo__iso foo__center">
+			<a href="../index.html"><img src="../Assets/Img/iso.png" alt="logo" class="iso__foo"></a>
 		</div>
-		<div class="foo__redes">
+		<div class="foo__redes foo__center">
 			<!-- Métodos de contacto -->
 			<h4 class="foo__font">Redes Sociales</h4>
 			<ul class="foo__redes--items">
@@ -86,7 +92,7 @@
 				<li><a href="https://www.youtube.com/" target="_blank" class="foo__font"><img src="https://icongr.am/entypo/youtube.svg?size=17&color=f6f3ee" alt="youtubeicon"> Youtube</a></li>
 			</ul>
 		</div>
-		<div class="foo__contacto">
+		<div class="foo__contacto foo__center">
 			<h4><a href="../Views/contacto.html" class="foo__font">Contacto</a></h4>
 			<ul class="foo__redes--items">
 				<li class="foo__font"><img src="https://icongr.am/entypo/phone.svg?size=17&color=f6f3ee" alt="phoneicon"> +54 1234567</li>
