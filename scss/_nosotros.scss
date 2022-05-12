@@ -1,20 +1,18 @@
-nav{
-	background-color: $color__primary;
-}
-.foo_boot{
+.container__nosotros{
+	display: grid;
+	grid-template-rows: 300px auto;
+	grid-auto-flow: row;
+	grid-template-areas: 
+	"tittlenos tittlenos"
+	"parrafonos imgnos"
+	;
 	width: 100%;
-	margin: 0px;
-	padding: 10px;
+	height: 100%;
 }
-.text__h3{
-	font-size: 37px;
-	color: #FF9900;
-	margin-top: 5rem;
-}
-.text__h1{
-	font-size: 50px;
-	color: #F6F3EE;
-	padding-top: 0px;
+.nosotros__img{
+	width: 370px;
+	padding-top: 3.5rem;
+	padding-bottom: 2rem;
 }
 .tittle__nosotros{
 	grid-area: tittlenos;
@@ -22,27 +20,32 @@ nav{
 	background-repeat: no-repeat;
 	background-position: top;
 	background-size: 100% 550px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 2rem;
+	justify-content: flex-end;
 }
-.img__nosotros{
-	max-width: 40%;
+.nosotros__titulo{
+	color: black;
+	font-size: 35px;
 }
 .parrafo__nosotros{
-	margin-left: 3rem;
+	grid-area: parrafonos;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	padding: 5rem 0px  0px 6rem;
 }
-.nosotrosarticle__a{
-	margin-left: 5rem;
-	padding: 0px;
+.img__nosotros{
+	grid-area: imgnos;
 }
 .parrafo__size{
 	width: 535px;
 	height: 142px;
-	margin-top: 2rem;
+	padding-top: 10px;
 }
-.nosotros__parrafo__elemento{
-	margin: 5px;
-}
-.nosotros__img{
-	width: 400px;
-	border-radius: 3.5px;
-	margin: 5rem 0px 5rem 0px;
+.parrafo{
+	color: black;
+	font-size: 20px;
 }

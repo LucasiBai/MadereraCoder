@@ -1,30 +1,32 @@
-// solicitud de productos
-let carrito = [];
+//Productos
+const productos = [
+	{ nombre: "cajonera", precio: 35000, categoria: "Escritorios" },
+	{ nombre: "estanteria", precio: 45000, categoria: "Estanterías" },
+	{ nombre: "escritorio gamer", precio: 55000, categoria: "Escritorios" },
+];
 
-let seguirComprando;
-while (seguirComprando !== "no") {
-	carrito.push(
-		parseFloat(
-			prompt(
-				"¿Cuál es el precio del producto que quieres comprar?\n(Precio solo con números)\n Cajonera = $35.000\n Estanteria = $45.000\n Escritorio Gamer = $55.000"
-			)
-		)
+const carrito = [];
+let seguirComprando = true;
+
+while (seguirComprando) {
+	let itemAComprar = prompt(
+		"¿Cuál producto quieres comprar?\n Cajonera = $35.000\n Estanteria = $45.000\n Escritorio Gamer = $55.000"
 	);
-	seguirComprando = prompt("¿Quieres seguir comprando?").toLowerCase();
+	carrito.push(itemAComprar.toLowerCase());
+	seguirComprando = confirm("¿Quieres agregar otro producto al carrito?");
 }
 
-// Fución con los cálculos
-function calcularCostoProductos(preciosProductos) {
-	let costoTotalDeProductos = 0;
+function calcularTotalCompra(listaDeProductos) {
+	let precioTotal = 0;
 
-	for (let precioProducto of preciosProductos) {
-		costoTotalDeProductos = costoTotalDeProductos + precioProducto;
+	for (const producto of listaDeProductos) {
 	}
-	return costoTotalDeProductos;
+
+	return precioTotal;
 }
 
 // Sacar precio de la funcion
-let costoTotalDeProductos = calcularCostoProductos(carrito);
+let precioTotal = calcularCostoProductos(carrito);
 
 // Alert con el total
 alert("El total a pagar sería: $" + costoTotalDeProductos);
