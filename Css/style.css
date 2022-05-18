@@ -65,9 +65,10 @@ body {
   padding: 10px;
   border-radius: 8px;
   border: none;
-  background-color: #ebe8e4; }
+  background-color: #ebe8e4;
+  cursor: pointer; }
   .button:hover, .button__categorías:hover, .button__ordenarpor:hover {
-    background-color: #555B53;
+    background-color: #555b53;
     color: white; }
 
 .button__categorías {
