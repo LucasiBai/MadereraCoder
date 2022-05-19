@@ -278,11 +278,19 @@ footer {
 
 .container__carrito {
   display: grid;
-  grid-template-rows: auto 300px;
+  grid-template-rows: auto auto;
   grid-auto-flow: row;
-  grid-template-areas: "carrito" "itemsca";
+  grid-template-areas: "carrito carrito" "itemsca boton-comprar";
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  margin-bottom: 4rem;
+  position: relative; }
+  .container__carrito aside {
+    grid-area: boton-comprar;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; }
 
 .tittle__carrito {
   grid-area: carrito;
@@ -294,7 +302,7 @@ footer {
 .carrito__flex {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center; }
 
 .items__carrito--flex {
@@ -308,8 +316,12 @@ footer {
   margin: 4rem 0px 1rem 11rem; }
 
 .carrito__img {
-  width: 110px;
+  width: 70px;
   border-radius: 10px; }
+  .carrito__img:hover {
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    cursor: pointer; }
 
 .text__carrito {
   color: black;
@@ -324,6 +336,13 @@ footer {
 .carrito__item--color {
   color: black;
   font-weight: normal; }
+
+.items__descripcion {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
+  .items__descripcion h4 {
+    margin: 3rem 4rem 1rem 3rem; }
 
 .container__contacto {
   display: grid;
