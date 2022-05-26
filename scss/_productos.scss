@@ -1,16 +1,15 @@
-.container__productos{
+.container__productos {
 	display: grid;
-	grid-template-rows: 300px 100px 500px;
+	grid-template-rows: 300px 100px auto;
 	grid-auto-flow: row;
-	grid-template-areas: 
-	"tittleprod"
-	"botonesco"
-	"articulos"
-	;
+	grid-template-areas:
+		"tittleprod"
+		"botonesco"
+		"articulos";
 	width: 100%;
 	height: 100%;
 }
-.tittle__productos{
+.tittle__productos {
 	background-image: url("../Assets/Img/backgroundproductos.png");
 	background-repeat: no-repeat;
 	background-position: top;
@@ -22,37 +21,81 @@
 	padding-bottom: 2rem;
 	justify-content: flex-end;
 }
-.botonesco{
+.botonesco {
 	grid-area: botonesco;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	padding-left: 10rem;
 	padding-right: 11rem;
-
 }
-.art__productos{
+.art__productos {
 	grid-area: articulos;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+	margin: 3rem auto 1rem auto;
+	max-width: 1500px;
+	min-height: 400px;
 }
-.articulos{
-	margin: 0rem 5rem 0rem 5rem;
+.articulos {
+	margin: 0rem 5rem 5rem 5rem;
 }
-.articulos__img{
+.articulos__img {
 	width: 225px;
 	height: 230px;
 }
-.articulos__nombre{
-	margin-bottom: 2px
+.articulos__nombre {
+	margin-bottom: 2px;
 }
-.articulos__clasificacion{
+.articulos__clasificacion {
 	margin: 0px;
 }
-.articulos__precio{
+.articulos__precio {
 	margin-top: 8px;
 }
-.contacto__img{
+.contacto__img {
 	width: 500px;
+}
+.articulos__botton-precio {
+	display: flex;
+	flex-direction: row;
+}
+.button__carrito {
+	margin: 0px 1rem;
+}
+.select__margin {
+	margin: 0px;
+}
+.precart-flex {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+table {
+	width: 80%;
+	border: 1px solid #000;
+	margin: 5rem auto;
+	empty-cells: hide;
+	border-collapse: collapse;
+}
+th,
+td {
+	width: 25%;
+	text-align: center;
+	vertical-align: top;
+	border: 1px solid #000;
+	padding: 2rem 1rem;
+}
+th {
+	font-size: 20px;
+}
+td {
+	padding: 3rem;
+	vertical-align: middle;
+}
+.marg-precart {
+	margin: 0px 1rem;
 }

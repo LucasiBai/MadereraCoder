@@ -26,6 +26,7 @@
 }
 .items__carrito {
 	grid-area: itemsca;
+	min-height: 300px;
 }
 .carrito__flex {
 	display: flex;
@@ -45,6 +46,7 @@
 }
 .carrito__img {
 	width: 70px;
+	height: 70px;
 	border-radius: 10px;
 	&:hover {
 		filter: blur(1px);

@@ -273,7 +273,10 @@
 }
 @media only screen and (min-width: 1700px) {
 	.container__carrito {
-		grid-template-rows: 300px 570px;
+		grid-template-rows: 300px auto;
+	}
+	.items__carrito {
+		min-height: 570px;
 	}
 	.tittle__carrito {
 		display: flex;
