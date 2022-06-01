@@ -91,20 +91,21 @@
 				<div class="botonesco">
 					<!-- Botón categorias -->
 					<div class="categorias">
-						<button type="button" class="button__categorías" j>
-							<img
-								src="https://icongr.am/entypo/menu.svg?size=20&color=555b53"
-								alt="menuicon"
-							/>Categorías
-						</button>
+						<select class="button__categorías" id="selectorCategorias">
+							<option value="none">Categorías</option>
+							<option value="escritorios">Escritorios</option>
+							<option value="estanterias">Estanterías</option>
+							<option value="habitacion">Habitación</option>
+							<option value="sillasysillones">Sillas y Sillones</option>
+							<option value="mesasyratoneras">Mesas y Ratoneras</option>
+						</select>
 					</div>
 					<!-- Botón Ordenar por -->
 					<div class="ordenarpor">
-						<select class="button__ordenarpor">
+						<select class="button__ordenarpor" id="selectorOrden">
 							<option value="none">Ordenar por</option>
 							<option value="maM">Precio Ascendente</option>
 							<option value="Mam">Precio Descendente</option>
-							<option value="destacados">Destacados</option>
 						</select>
 					</div>
 				</div>
@@ -118,7 +119,7 @@
 						<tr>
 							<th>Producto</th>
 							<th>Precio</th>
-							<th>cantidad</th>
+							<th>Cantidad</th>
 						</tr>
 					</tbody>
 				</table>

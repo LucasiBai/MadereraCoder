@@ -49,6 +49,9 @@ const contenedorArticulos = document.getElementById("productosHtml");
 
 // Función para imprimir los productos
 function imprimirProductosAlContenedor(listaProductos) {
+	// Limpiamos contenedor
+	limpiarContenedorProductos();
+
 	// Recorremos el array de productos
 	for (let producto of listaProductos) {
 		// Creación de articulo
@@ -71,5 +74,78 @@ function imprimirProductosAlContenedor(listaProductos) {
 	}
 }
 
+// Función para limpiar el contenedor de productos
+function limpiarContenedorProductos() {
+	contenedorArticulos.innerHTML = "";
+}
+// Función para ordenar lista
+function ordenarLista(listaProductos) {}
+
 // Ejecutamos la impresión de los productos
 imprimirProductosAlContenedor(productos);
+
+// Array con productos por categoría
+const productosEscritorios = productos.filter(
+	(producto) => producto.categoria == "Escritorios"
+);
+
+const productosEstanterias = productos.filter(
+	(producto) => producto.categoria == "Estanterías"
+);
+
+const productosHabitacion = productos.filter(
+	(producto) => producto.categoria == "Habitación"
+);
+
+const productosSillasYSillones = productos.filter(
+	(producto) => producto.categoria == "Sillas y Sillones"
+);
+
+const productosMesasYRatoneras = productos.filter(
+	(producto) => producto.categoria == "Mesas y Ratoneras"
+);
+
+// Llamamos a los selectores
+// Selector de categorías
+const selectorCategorias = document.getElementById("selectorCategorias");
+// Evento para cambiar categoría
+selectorCategorias.addEventListener("change", (e) => {
+	// Seleccionamos la categoria
+	const categoriaSeleccionada = e.target.value;
+	console.log(categoriaSeleccionada);
+	// Imprimimos la categoria seleccionada
+	if (categoriaSeleccionada == "none") {
+		imprimirProductosAlContenedor(productos);
+	} else if (categoriaSeleccionada == "escritorios") {
+		imprimirProductosAlContenedor(productosEscritorios);
+	} else if (categoriaSeleccionada == "estanterias") {
+		imprimirProductosAlContenedor(productosEstanterias);
+	} else if (categoriaSeleccionada == "habitacion") {
+		imprimirProductosAlContenedor(productosHabitacion);
+	} else if (categoriaSeleccionada == "sillasysillones") {
+		imprimirProductosAlContenedor(productosSillasYSillones);
+	} else if (categoriaSeleccionada == "mesasyratoneras") {
+		imprimirProductosAlContenedor(productosMesasYRatoneras);
+	}
+});
+
+// Selector de orden
+const selectorOrden = document.getElementById("selectorOrden");
+// Evento para cambiar orden
+selectorOrden.addEventListener("change", (e) => {
+	// Seleccionamos la categoria
+	const ordenSeleccionado = e.target.value;
+	console.log(ordenSeleccionado);
+	// Imprimimos la categoria seleccionada
+	if (ordenSeleccionado == "none") {
+		imprimirProductosAlContenedor(productos);
+	} else if (ordenSeleccionado == "maM") {
+		imprimirProductosAlContenedor(
+			productos.sort((a, b) => a.precio - b.precio)
+		);
+	} else if (ordenSeleccionado == "Mam") {
+		imprimirProductosAlContenedor(
+			productos.sort((a, b) => b.precio - a.precio)
+		);
+	}
+});
