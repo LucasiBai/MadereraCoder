@@ -1,51 +1,7 @@
-// //Funciones
-// // Función para agregar elemento al carrito
-// function agregarAlCarrito(itemABuscar) {
-// 	//Busqueda del producto
-// 	let item = productos.find((producto) => producto.nombre == itemABuscar);
-// 	console.log(item);
-
-// 	// Creación de la Card
-// 	let cardCarrito = document.createElement("tr");
-// 	// Añadimos artículo al carrito
-// 	cardCarrito.innerHTML = `
-//   <td><div class="precart-flex"><img src="${item.img}" alt="${
-// 		item.nombre
-// 	}" class="carrito__img marg-precart"><span class=" marg-precart">${
-// 		item.nombre
-// 	}</span></div></td>
-//   <td>$${item.precio.toLocaleString("en-US", {
-// 		minimumFractionDigits: 2,
-// 	})}</td>
-//   <td><select
-//   class="button select__margin"
-// >
-//   <option value="1">1</option>
-//   <option value="2">2</option>
-//   <option value="3">3</option>
-//   <option value="4">4</option>
-//   <option value="5">5</option>
-//   </select></td>
-// `;
-// 	precarritoCompras.appendChild(cardCarrito);
-// }
-
-// let precarritoCompras = document.getElementById("productosPrecarrito");
-
-// // Agregar elementos al carrito
-// // LLamado de los botones
-// let botonCajonera = document.querySelector("#boton0");
-// let botonEscritorio = document.querySelector("#boton1");
-// let botonEstanteria = document.querySelector("#boton2");
-
-// // Agregamos eventos
-// botonCajonera.addEventListener("click", () => agregarAlCarrito("Cajonera"));
-// botonEscritorio.addEventListener("click", () =>
-// 	agregarAlCarrito("Escritorio Gamer")
-// );
-// botonEstanteria.addEventListener("click", () => agregarAlCarrito("Estanteria"));
-
 const contenedorArticulos = document.getElementById("productosHtml");
+
+// Ejecutamos la impresión de los productos
+imprimirProductosAlContenedor(productos);
 
 // Función para imprimir los productos
 function imprimirProductosAlContenedor(listaProductos) {
@@ -72,17 +28,79 @@ function imprimirProductosAlContenedor(listaProductos) {
 		// Agregamos articulo al contenedor
 		contenedorArticulos.append(articulo);
 	}
+
+	// Damos propiedad a los botones
+	listaProductos.forEach((producto) => {
+		// Evento
+		document
+			.getElementById(`agregarCarrito${producto.id}`)
+			.addEventListener("click", () => {
+				agregarAlCarrito(producto);
+			});
+	});
+}
+
+// Carrito
+let carrito;
+if (localStorage.getItem("carrito") != null) {
+	carrito = JSON.parse(localStorage.getItem("carrito"));
+
+	// Actualizamos tabla
+	for (let producto of carrito) {
+		imprimirCarrito(producto);
+	}
+} else {
+	carrito = [];
+}
+
+// Agregar al carrito
+function agregarAlCarrito(productoAAgregar) {
+	// Alert para avisar de la carga del producto
+	alert(`El producto ${productoAAgregar.nombre} ha sido agregado al Carrito`);
+	// condicional para no agregar de nuevo *terminar*
+	if (carrito.includes(productoAAgregar)) {
+		productoAAgregar.cantidad += 1;
+		document.getElementById(`cant${productoAAgregar.id}`).value =
+			productoAAgregar.cantidad;
+	} else {
+		carrito.push(productoAAgregar);
+		// Imprimimos producto en el html
+		imprimirCarrito(productoAAgregar);
+	}
+
+	// Guardamos producto seleccionado en el storage
+	localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function imprimirCarrito(productoAAgregar) {
+	document.querySelector("#productosPrecarrito").innerHTML += `
+  <td>
+    <div class="precart-flex">
+      <img src="${productoAAgregar.img}" alt="${
+		productoAAgregar.nombre
+	}" class="carrito__img marg-precart"/>
+      <span class="marg-precart">${productoAAgregar.nombre}</span>
+    </div>
+  </td>
+  <td>
+    $${productoAAgregar.precio.toLocaleString("en-US", {
+			minimumFractionDigits: 2,
+		})}
+  </td>
+  <td>
+    <input type="number" class="contform select__margin" value="${
+			productoAAgregar.cantidad
+		}" id="cant${productoAAgregar.id}" />
+  </td> 
+`;
 }
 
 // Función para limpiar el contenedor de productos
 function limpiarContenedorProductos() {
 	contenedorArticulos.innerHTML = "";
 }
-// Función para ordenar lista
-function ordenarLista(listaProductos) {}
-
-// Ejecutamos la impresión de los productos
-imprimirProductosAlContenedor(productos);
+// Función para ordenar lista *agregar después del json*
+// function ordenarLista(listaProductos) {}
 
 // Array con productos por categoría
 const productosEscritorios = productos.filter(
@@ -116,16 +134,22 @@ selectorCategorias.addEventListener("change", (e) => {
 	// Imprimimos la categoria seleccionada
 	if (categoriaSeleccionada == "none") {
 		imprimirProductosAlContenedor(productos);
+		sessionStorage.setItem("estadoCarga", "productos");
 	} else if (categoriaSeleccionada == "escritorios") {
 		imprimirProductosAlContenedor(productosEscritorios);
+		sessionStorage.setItem("estadoCarga", "productosEscritorios");
 	} else if (categoriaSeleccionada == "estanterias") {
 		imprimirProductosAlContenedor(productosEstanterias);
+		sessionStorage.setItem("estadoCarga", "productosEstanterias");
 	} else if (categoriaSeleccionada == "habitacion") {
 		imprimirProductosAlContenedor(productosHabitacion);
+		sessionStorage.setItem("estadoCarga", "productosHabitacion");
 	} else if (categoriaSeleccionada == "sillasysillones") {
 		imprimirProductosAlContenedor(productosSillasYSillones);
+		sessionStorage.setItem("estadoCarga", "productosSillasYSillones");
 	} else if (categoriaSeleccionada == "mesasyratoneras") {
 		imprimirProductosAlContenedor(productosMesasYRatoneras);
+		sessionStorage.setItem("estadoCarga", "productosMesasYRatoneras");
 	}
 });
 
@@ -137,9 +161,7 @@ selectorOrden.addEventListener("change", (e) => {
 	const ordenSeleccionado = e.target.value;
 	console.log(ordenSeleccionado);
 	// Imprimimos la categoria seleccionada
-	if (ordenSeleccionado == "none") {
-		imprimirProductosAlContenedor(productos);
-	} else if (ordenSeleccionado == "maM") {
+	if (ordenSeleccionado == "maM") {
 		imprimirProductosAlContenedor(
 			productos.sort((a, b) => a.precio - b.precio)
 		);

@@ -6,6 +6,7 @@ const productos = [
 		precio: 35000,
 		categoria: "Escritorios",
 		img: "../Assets/Img/cajonera1.jpg",
+		cantidad: 1,
 	},
 	{
 		id: 2,
@@ -13,6 +14,7 @@ const productos = [
 		precio: 45000,
 		categoria: "Estanterías",
 		img: "../Assets/Img/mueble6.jpeg",
+		cantidad: 1,
 	},
 	{
 		id: 3,
@@ -20,6 +22,7 @@ const productos = [
 		precio: 55000,
 		categoria: "Escritorios",
 		img: "../Assets/Img/mueble5.jpg",
+		cantidad: 1,
 	},
 	{
 		id: 4,
@@ -27,6 +30,7 @@ const productos = [
 		precio: 15000,
 		categoria: "Habitación",
 		img: "https://images.unsplash.com/photo-1618137230703-ba54f120c80f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+		cantidad: 1,
 	},
 	{
 		id: 5,
@@ -34,6 +38,7 @@ const productos = [
 		precio: 23000,
 		categoria: "Habitación",
 		img: "https://images.unsplash.com/photo-1616627686843-ad0c89cc5c0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+		cantidad: 1,
 	},
 	{
 		id: 6,
@@ -41,6 +46,7 @@ const productos = [
 		precio: 14000,
 		categoria: "Sillas y Sillones",
 		img: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+		cantidad: 1,
 	},
 	{
 		id: 7,
@@ -48,6 +54,7 @@ const productos = [
 		precio: 7000,
 		categoria: "Estanterías",
 		img: "https://images.unsplash.com/photo-1581096316934-51283c9851ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+		cantidad: 1,
 	},
 	{
 		id: 8,
@@ -55,6 +62,7 @@ const productos = [
 		precio: 57500,
 		categoria: "Sillas y Sillones",
 		img: "https://images.unsplash.com/photo-1549187774-b4e9b0445b41?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+		cantidad: 1,
 	},
 	{
 		id: 9,
@@ -62,6 +70,7 @@ const productos = [
 		precio: 22000,
 		categoria: "Mesas y Ratoneras",
 		img: "https://images.unsplash.com/photo-1581428982868-e410dd047a90?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+		cantidad: 1,
 	},
 	{
 		id: 10,
@@ -69,6 +78,7 @@ const productos = [
 		precio: 10000,
 		categoria: "Sillas y Sillones",
 		img: "https://images.unsplash.com/photo-1622147681210-d7da05b4a7d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
+		cantidad: 1,
 	},
 	{
 		id: 11,
@@ -76,6 +86,7 @@ const productos = [
 		precio: 8600,
 		categoria: "Mesas y Ratoneras",
 		img: "https://images.unsplash.com/photo-1604061986761-d9d0cc41b0d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
+		cantidad: 1,
 	},
 	{
 		id: 12,
@@ -83,5 +94,6 @@ const productos = [
 		precio: 10000,
 		categoria: "Sillas y Sillones",
 		img: "https://images.unsplash.com/photo-1581539250439-c96689b516dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+		cantidad: 1,
 	},
 ];
