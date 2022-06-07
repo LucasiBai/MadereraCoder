@@ -47,8 +47,19 @@ if (carrito != []) {
 
 // Agregar al carrito
 function agregarAlCarrito(productoAAgregar) {
-	// Alert para avisar de la carga del producto
-	alert(`El producto ${productoAAgregar.nombre} ha sido agregado al Carrito`);
+	// Notificación de carga al carrito
+	Toastify({
+		text: `Has agregado ${productoAAgregar.nombre} al carrito.`,
+		offset: {
+			x: 50,
+			y: 60,
+		},
+		position: "right",
+		duration: 2000,
+		style: {
+			background: "linear-gradient(to right, #de8500, #c97900)",
+		},
+	}).showToast();
 	// condicional para no agregar de nuevo *terminar*
 	if (carrito.includes(productoAAgregar)) {
 		productoAAgregar.cantidad += 1;
