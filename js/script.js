@@ -10,11 +10,10 @@ function imprimirProductosAlContenedor(listaProductos) {
 
 	// Recorremos el array de productos
 	for (let producto of listaProductos) {
-		// Creación de articulo
-		const articulo = document.createElement("article");
-		articulo.classList.add("articulos");
 		// Agregamos producto correspondiente
-		articulo.innerHTML = `<img src=${producto.img} class="articulos__img" />
+		contenedorArticulos.innerHTML += `<article class="articulos"><img src=${
+			producto.img
+		} class="articulos__img" />
     <h3 class="articulos__nombre">${producto.nombre}</h3>
     <h3 class="articulos__clasificacion">${producto.categoria}</h3>
     <div class="articulos__botton-precio">
@@ -24,9 +23,7 @@ function imprimirProductosAlContenedor(listaProductos) {
       <button class="button button__carrito" id="agregarCarrito${producto.id}">
       Agregar al Carrito
       </button>
-    </div>`;
-		// Agregamos articulo al contenedor
-		contenedorArticulos.append(articulo);
+    </div></article>`;
 	}
 
 	// Damos propiedad a los botones
@@ -41,16 +38,11 @@ function imprimirProductosAlContenedor(listaProductos) {
 }
 
 // Carrito
-let carrito;
-if (localStorage.getItem("carrito") != null) {
-	carrito = JSON.parse(localStorage.getItem("carrito"));
-
-	// Actualizamos tabla
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+if (carrito != []) {
 	for (let producto of carrito) {
 		imprimirCarrito(producto);
 	}
-} else {
-	carrito = [];
 }
 
 // Agregar al carrito
@@ -68,7 +60,7 @@ function agregarAlCarrito(productoAAgregar) {
 		imprimirCarrito(productoAAgregar);
 	}
 
-	// Guardamos producto seleccionado en el storage
+	// Actualizamos el local storage
 	localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
@@ -99,29 +91,17 @@ function imprimirCarrito(productoAAgregar) {
 function limpiarContenedorProductos() {
 	contenedorArticulos.innerHTML = "";
 }
-// Función para ordenar lista *agregar después del json*
-// function ordenarLista(listaProductos) {}
 
+// Función filtrar
+function filtrarProductos(categoria) {
+	return productos.filter((producto) => producto.categoria == categoria);
+}
 // Array con productos por categoría
-const productosEscritorios = productos.filter(
-	(producto) => producto.categoria == "Escritorios"
-);
-
-const productosEstanterias = productos.filter(
-	(producto) => producto.categoria == "Estanterías"
-);
-
-const productosHabitacion = productos.filter(
-	(producto) => producto.categoria == "Habitación"
-);
-
-const productosSillasYSillones = productos.filter(
-	(producto) => producto.categoria == "Sillas y Sillones"
-);
-
-const productosMesasYRatoneras = productos.filter(
-	(producto) => producto.categoria == "Mesas y Ratoneras"
-);
+const productosEscritorios = filtrarProductos("Escritorios");
+const productosEstanterias = filtrarProductos("Estanterías");
+const productosHabitacion = filtrarProductos("Habitación");
+const productosSillasYSillones = filtrarProductos("Sillas y Sillones");
+const productosMesasYRatoneras = filtrarProductos("Mesas y Ratoneras");
 
 // Llamamos a los selectores
 // Selector de categorías
@@ -130,26 +110,32 @@ const selectorCategorias = document.getElementById("selectorCategorias");
 selectorCategorias.addEventListener("change", (e) => {
 	// Seleccionamos la categoria
 	const categoriaSeleccionada = e.target.value;
-	console.log(categoriaSeleccionada);
+
 	// Imprimimos la categoria seleccionada
-	if (categoriaSeleccionada == "none") {
-		imprimirProductosAlContenedor(productos);
-		sessionStorage.setItem("estadoCarga", "productos");
-	} else if (categoriaSeleccionada == "escritorios") {
-		imprimirProductosAlContenedor(productosEscritorios);
-		sessionStorage.setItem("estadoCarga", "productosEscritorios");
-	} else if (categoriaSeleccionada == "estanterias") {
-		imprimirProductosAlContenedor(productosEstanterias);
-		sessionStorage.setItem("estadoCarga", "productosEstanterias");
-	} else if (categoriaSeleccionada == "habitacion") {
-		imprimirProductosAlContenedor(productosHabitacion);
-		sessionStorage.setItem("estadoCarga", "productosHabitacion");
-	} else if (categoriaSeleccionada == "sillasysillones") {
-		imprimirProductosAlContenedor(productosSillasYSillones);
-		sessionStorage.setItem("estadoCarga", "productosSillasYSillones");
-	} else if (categoriaSeleccionada == "mesasyratoneras") {
-		imprimirProductosAlContenedor(productosMesasYRatoneras);
-		sessionStorage.setItem("estadoCarga", "productosMesasYRatoneras");
+	switch (categoriaSeleccionada) {
+		case "escritorios":
+			imprimirProductosAlContenedor(productosEscritorios);
+			sessionStorage.setItem("estadoCarga", "productosEscritorios");
+			break;
+		case "estanterias":
+			imprimirProductosAlContenedor(productosEstanterias);
+			sessionStorage.setItem("estadoCarga", "productosEstanterias");
+			break;
+		case "habitacion":
+			imprimirProductosAlContenedor(productosHabitacion);
+			sessionStorage.setItem("estadoCarga", "productosHabitacion");
+			break;
+		case "sillasysillones":
+			imprimirProductosAlContenedor(productosSillasYSillones);
+			sessionStorage.setItem("estadoCarga", "productosSillasYSillones");
+			break;
+		case "mesasyratoneras":
+			imprimirProductosAlContenedor(productosMesasYRatoneras);
+			sessionStorage.setItem("estadoCarga", "productosMesasYRatoneras");
+			break;
+		default:
+			imprimirProductosAlContenedor(productos);
+			sessionStorage.setItem("estadoCarga", "productos");
 	}
 });
 
@@ -159,15 +145,14 @@ const selectorOrden = document.getElementById("selectorOrden");
 selectorOrden.addEventListener("change", (e) => {
 	// Seleccionamos la categoria
 	const ordenSeleccionado = e.target.value;
-	console.log(ordenSeleccionado);
 	// Imprimimos la categoria seleccionada
-	if (ordenSeleccionado == "maM") {
-		imprimirProductosAlContenedor(
-			productos.sort((a, b) => a.precio - b.precio)
-		);
-	} else if (ordenSeleccionado == "Mam") {
-		imprimirProductosAlContenedor(
-			productos.sort((a, b) => b.precio - a.precio)
-		);
-	}
+	ordenSeleccionado == "maM"
+		? imprimirProductosAlContenedor(
+				productos.sort((a, b) => a.precio - b.precio)
+		  )
+		: ordenSeleccionado == "Mam"
+		? imprimirProductosAlContenedor(
+				productos.sort((a, b) => b.precio - a.precio)
+		  )
+		: imprimirProductosAlContenedor(productos);
 });
