@@ -87,17 +87,19 @@
 				<h1 class="text__tittle--carrito">Carrito</h1>
 			</div>
 			<section class="items__carrito">
-				<article class="items__descripcion">
-					<h4 class="text__carrito carrito__item carrito__itema">Producto:</h4>
-					<h4 class="text__carrito carrito__item carrito__itema">Precio:</h4>
-					<h4
-						class="text__carrito carrito__item carrito__item--cantidad carrito__itema"
-					>
-						Cantidad:
-					</h4>
-				</article>
-				<section class="tabla__productos" id="carrito">
-          
+				<section class="precarrito">
+          <table>
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody id="productosPrecarrito">
+              <!-- Productos -->
+            </tbody>
+          </table>
         </section>
 			</section>
       <aside>
@@ -181,6 +183,9 @@
 			AOS.init();
 		</script>
     <!-- JS Propio -->
+		<!-- Array con Productos -->
+		<script src="../js/productos.js"></script>
+		<!-- Script -->
 		<script src="../js/script.js"></script>
 	</body>
 </html>
