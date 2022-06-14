@@ -1,10 +1,12 @@
 const contenedorArticulos = document.getElementById("productosHtml");
-
+const totalCarrito = document.querySelector("#montoTotal");
 // Ejecutamos la impresión de los productos
 imprimirProductosAlContenedor(productos);
 
 // Función para imprimir los productos
 function imprimirProductosAlContenedor(listaProductos) {
+	// Si no existe el elemento retonamos
+	if (!contenedorArticulos) return;
 	// Limpiamos contenedor
 	limpiarContenedorProductos();
 
@@ -40,26 +42,23 @@ function imprimirProductosAlContenedor(listaProductos) {
 // Carrito
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 if (carrito != []) {
+	let monto = 0;
 	for (let producto of carrito) {
 		imprimirCarrito(producto);
+		monto += producto.precio * producto.cantidad;
 	}
+	totalCarrito.innerHTML = `<span class="monto">Monto a Pagar:</span> $${monto.toLocaleString(
+		"en-US",
+		{
+			minimumFractionDigits: 2,
+		}
+	)}`;
 }
 
 // Agregar al carrito
 function agregarAlCarrito(productoAAgregar) {
 	// Notificación de carga al carrito
-	Toastify({
-		text: `Has agregado ${productoAAgregar.nombre} al carrito.`,
-		offset: {
-			x: 50,
-			y: 60,
-		},
-		position: "right",
-		duration: 2000,
-		style: {
-			background: "linear-gradient(to right, #de8500, #c97900)",
-		},
-	}).showToast();
+	mostrarNotificacionCarrito(productoAAgregar);
 	// condicional para no agregar de nuevo *terminar*
 	if (carrito.includes(productoAAgregar)) {
 		productoAAgregar.cantidad += 1;
@@ -75,8 +74,27 @@ function agregarAlCarrito(productoAAgregar) {
 	localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+function mostrarNotificacionCarrito(productoAAgregar) {
+	Toastify({
+		text: `Has agregado ${productoAAgregar.nombre} al carrito.`,
+		offset: {
+			x: 50,
+			y: 60,
+		},
+		position: "right",
+		duration: 2000,
+		style: {
+			background: "linear-gradient(to right, #de8500, #c97900)",
+		},
+	}).showToast();
+}
+
 function imprimirCarrito(productoAAgregar) {
-	document.querySelector("#productosPrecarrito").innerHTML += `
+	const element = document.querySelector("#productosPrecarrito");
+
+	if (!element) return;
+
+	element.innerHTML += `
   <td>
     <div class="precart-flex">
       <img src="${productoAAgregar.img}" alt="${
@@ -86,9 +104,12 @@ function imprimirCarrito(productoAAgregar) {
     </div>
   </td>
   <td>
-    $${productoAAgregar.precio.toLocaleString("en-US", {
-			minimumFractionDigits: 2,
-		})}
+    $${(productoAAgregar.precio * productoAAgregar.cantidad).toLocaleString(
+			"en-US",
+			{
+				minimumFractionDigits: 2,
+			}
+		)}
   </td>
   <td>
     <input type="number" class="contform select__margin" value="${
@@ -118,52 +139,58 @@ const productosMesasYRatoneras = filtrarProductos("Mesas y Ratoneras");
 // Selector de categorías
 const selectorCategorias = document.getElementById("selectorCategorias");
 // Evento para cambiar categoría
-selectorCategorias.addEventListener("change", (e) => {
-	// Seleccionamos la categoria
-	const categoriaSeleccionada = e.target.value;
+// Si existe el elemento, agregamos evento
+if (selectorCategorias) {
+	selectorCategorias.addEventListener("change", (e) => {
+		// Seleccionamos la categoria
+		const categoriaSeleccionada = e.target.value;
 
-	// Imprimimos la categoria seleccionada
-	switch (categoriaSeleccionada) {
-		case "escritorios":
-			imprimirProductosAlContenedor(productosEscritorios);
-			sessionStorage.setItem("estadoCarga", "productosEscritorios");
-			break;
-		case "estanterias":
-			imprimirProductosAlContenedor(productosEstanterias);
-			sessionStorage.setItem("estadoCarga", "productosEstanterias");
-			break;
-		case "habitacion":
-			imprimirProductosAlContenedor(productosHabitacion);
-			sessionStorage.setItem("estadoCarga", "productosHabitacion");
-			break;
-		case "sillasysillones":
-			imprimirProductosAlContenedor(productosSillasYSillones);
-			sessionStorage.setItem("estadoCarga", "productosSillasYSillones");
-			break;
-		case "mesasyratoneras":
-			imprimirProductosAlContenedor(productosMesasYRatoneras);
-			sessionStorage.setItem("estadoCarga", "productosMesasYRatoneras");
-			break;
-		default:
-			imprimirProductosAlContenedor(productos);
-			sessionStorage.setItem("estadoCarga", "productos");
-	}
-});
+		// Imprimimos la categoria seleccionada
+		switch (categoriaSeleccionada) {
+			case "escritorios":
+				imprimirProductosAlContenedor(productosEscritorios);
+				sessionStorage.setItem("estadoCarga", "productosEscritorios");
+				break;
+			case "estanterias":
+				imprimirProductosAlContenedor(productosEstanterias);
+				sessionStorage.setItem("estadoCarga", "productosEstanterias");
+				break;
+			case "habitacion":
+				imprimirProductosAlContenedor(productosHabitacion);
+				sessionStorage.setItem("estadoCarga", "productosHabitacion");
+				break;
+			case "sillasysillones":
+				imprimirProductosAlContenedor(productosSillasYSillones);
+				sessionStorage.setItem("estadoCarga", "productosSillasYSillones");
+				break;
+			case "mesasyratoneras":
+				imprimirProductosAlContenedor(productosMesasYRatoneras);
+				sessionStorage.setItem("estadoCarga", "productosMesasYRatoneras");
+				break;
+			default:
+				imprimirProductosAlContenedor(productos);
+				sessionStorage.setItem("estadoCarga", "productos");
+		}
+	});
+}
 
 // Selector de orden
 const selectorOrden = document.getElementById("selectorOrden");
 // Evento para cambiar orden
-selectorOrden.addEventListener("change", (e) => {
-	// Seleccionamos la categoria
-	const ordenSeleccionado = e.target.value;
-	// Imprimimos la categoria seleccionada
-	ordenSeleccionado == "maM"
-		? imprimirProductosAlContenedor(
-				productos.sort((a, b) => a.precio - b.precio)
-		  )
-		: ordenSeleccionado == "Mam"
-		? imprimirProductosAlContenedor(
-				productos.sort((a, b) => b.precio - a.precio)
-		  )
-		: imprimirProductosAlContenedor(productos);
-});
+// Si existe el elemento, agregamos evento
+if (selectorOrden) {
+	selectorOrden.addEventListener("change", (e) => {
+		// Seleccionamos la categoria
+		const ordenSeleccionado = e.target.value;
+		// Imprimimos la categoria seleccionada
+		ordenSeleccionado == "maM"
+			? imprimirProductosAlContenedor(
+					productos.sort((a, b) => a.precio - b.precio)
+			  )
+			: ordenSeleccionado == "Mam"
+			? imprimirProductosAlContenedor(
+					productos.sort((a, b) => b.precio - a.precio)
+			  )
+			: imprimirProductosAlContenedor(productos);
+	});
+}

@@ -86,35 +86,40 @@
 				<!-- Título Carrito -->
 				<h1 class="text__tittle--carrito">Carrito</h1>
 			</div>
-			<section class="items__carrito">
-				<article class="items__descripcion">
-					<h4 class="text__carrito carrito__item carrito__itema">Producto:</h4>
-					<h4 class="text__carrito carrito__item carrito__itema">Precio:</h4>
-					<h4
-						class="text__carrito carrito__item carrito__item--cantidad carrito__itema"
-					>
-						Cantidad:
-					</h4>
-				</article>
-				<section class="tabla__productos" id="carrito">
-          
-        </section>
+			<section class="precarrito">
+				<table>
+					<thead>
+						<tr>
+							<th>Producto</th>
+							<th>Precio</th>
+							<th>Cantidad</th>
+						</tr>
+					</thead>
+					<tbody id="productosPrecarrito">
+						<!-- Prodcutos -->
+					</tbody>
+				</table>
 			</section>
-      <aside>
-        <!-- Botón de Compra -->
-					<div
-          data-aos="fade-up"
-          data-aos-anchor-placement="center-bottom"
-          data-aos-delay="200"
-        >
-          <button
-            class="button button__size mb-5"
-            type="button"
-            onclick="window.open('productos.html')"
-          >
-            Finalizar Compra
-          </button>
-      </aside>
+			<section class="finalizar__compra">
+				<!-- Botón de Compra -->
+				<article class="h2__carrito">
+					<h2 id="montoTotal"><span class="monto">Monto a Pagar:</span></h2>
+				</article>
+				<div
+					data-aos="fade-up"
+					data-aos-anchor-placement="center-bottom"
+					data-aos-delay="200"
+					class="button__comprar"
+				>
+					<button
+						class="button mb-5 button__comprar--s"
+						type="button"
+						onclick="window.open('productos.html')"
+					>
+						Finalizar Compra
+					</button>
+				</div>
+			</section>
 		</main>
 		<footer class="foo__css">
 			<!-- Footer Logo -->
@@ -180,7 +185,10 @@
 		<script>
 			AOS.init();
 		</script>
-    <!-- JS Propio -->
+		<!-- JS Propio -->
+		<!-- Array con Productos -->
+		<script src="../js/productos.js"></script>
+		<!-- Script -->
 		<script src="../js/script.js"></script>
 	</body>
 </html>
