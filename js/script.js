@@ -41,7 +41,7 @@ function imprimirProductosAlContenedor(listaProductos) {
 
 // Carrito
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-if (carrito != []) {
+if (carrito != [] && totalCarrito) {
 	let monto = 0;
 	for (let producto of carrito) {
 		imprimirCarrito(producto);
@@ -54,16 +54,18 @@ if (carrito != []) {
 		}
 	)}`;
 }
+console.log(carrito);
 
 // Agregar al carrito
 function agregarAlCarrito(productoAAgregar) {
 	// Notificación de carga al carrito
 	mostrarNotificacionCarrito(productoAAgregar);
-	// condicional para no agregar de nuevo *terminar*
-	if (carrito.includes(productoAAgregar)) {
-		productoAAgregar.cantidad += 1;
-		document.getElementById(`cant${productoAAgregar.id}`).value =
-			productoAAgregar.cantidad;
+	let encontrado = carrito.find(({ id }) => id == productoAAgregar.id);
+	// condicional para no agregar de nuevo
+	if (encontrado) {
+		carrito.map((producto) =>
+			producto.id == productoAAgregar.id ? (producto.cantidad += 1) : null
+		);
 	} else {
 		carrito.push(productoAAgregar);
 		// Imprimimos producto en el html

@@ -354,6 +354,7 @@ footer {
 	width: 70px;
 	height: 70px;
 	border-radius: 10px;
+	object-fit: cover;
 }
 .carrito__img:hover {
 	filter: blur(1px);
@@ -440,6 +441,7 @@ footer {
 .articulos__img {
 	width: 225px;
 	height: 230px;
+	object-fit: cover;
 }
 
 .articulos__nombre {
