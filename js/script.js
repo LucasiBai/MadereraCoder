@@ -1,7 +1,11 @@
 const contenedorArticulos = document.getElementById("productosHtml");
 const totalCarrito = document.querySelector("#montoTotal");
-// Ejecutamos la impresión de los productos
-imprimirProductosAlContenedor(productos);
+const tipoMoneda = document.querySelector("#tipoMoneda");
+let dolarCompra;
+
+window.onload = () => {
+	obtenerValorDolar();
+};
 
 // Función para imprimir los productos
 function imprimirProductosAlContenedor(listaProductos) {
@@ -54,7 +58,6 @@ if (carrito != [] && totalCarrito) {
 		}
 	)}`;
 }
-console.log(carrito);
 
 // Agregar al carrito
 function agregarAlCarrito(productoAAgregar) {
@@ -120,6 +123,11 @@ function imprimirCarrito(productoAAgregar) {
   </td> 
 `;
 }
+
+// Seguir con esto
+// function eliminarDelCarrito(producto.id){
+//   carrito.
+// }
 
 // Función para limpiar el contenedor de productos
 function limpiarContenedorProductos() {
@@ -195,4 +203,39 @@ if (selectorOrden) {
 			  )
 			: imprimirProductosAlContenedor(productos);
 	});
+}
+
+// Selector tipo moneda
+// Si existe elemento, agregamos evento
+if (tipoMoneda) {
+	tipoMoneda.addEventListener("change", (e) => {
+		// Selección de tipo
+		const monedaSeleccionada = e.target.value;
+		// Determinamos la acción
+		monedaSeleccionada == "ars"
+			? imprimirProductosAlContenedor(productos)
+			: cambiarTipoDeMoneda(dolarCompra);
+	});
+}
+
+function cambiarTipoDeMoneda(moneda) {
+	let productosDiferentePrecio = productos.map((producto) => ({
+		...producto,
+		precio: producto.precio / parseFloat(moneda),
+	}));
+	console.log(productosDiferentePrecio);
+	imprimirProductosAlContenedor(productosDiferentePrecio);
+}
+
+async function obtenerValorDolar() {
+	// Llamamos a la API
+	const URLDOLAR =
+		"https://www.dolarsi.com/api/api.php?type=valoresprincipales";
+	const res = await fetch(URLDOLAR);
+	const data = await res.json();
+	const dolarBlue = data.find((dolar) => dolar.casa.nombre == "Dolar Blue");
+	dolarCompra = dolarBlue.casa.compra;
+
+	// Ejecutamos la impresión de los productos
+	imprimirProductosAlContenedor(productos);
 }
