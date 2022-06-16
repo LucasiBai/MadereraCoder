@@ -221,7 +221,7 @@ if (tipoMoneda) {
 function cambiarTipoDeMoneda(moneda) {
 	let productosDiferentePrecio = productos.map((producto) => ({
 		...producto,
-		precio: producto.precio / parseFloat(moneda),
+		precio: (producto.precio / parseFloat(moneda)).toFixed(2),
 	}));
 	console.log(productosDiferentePrecio);
 	imprimirProductosAlContenedor(productosDiferentePrecio);
