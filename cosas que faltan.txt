@@ -1,5 +1,5 @@
-guardar tipo de moneda en el local storage y que cambien los precios del carrito
-que aparezca u$ en precio con dolares **********
+guardar tipo de moneda en el local storage y que cambien los precios del carrito****casi
+que aparezca u$ en precio con dolares ********** corregir bug al cambiar categoria
 corregir el orden por precio en las diferentes categorias
 agregar botón para eliminar producto**empezado
 tener mensaje de carrito vacio **maso

@@ -16,20 +16,6 @@ dolares ? (tipoMoneda.value = "usd") : null;
 
 // Carrito
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-if (carrito !== [] && totalCarrito) {
-	let monto = 0;
-	limpiarContenedor(tablaCarrito);
-	for (let producto of carrito) {
-		imprimirCarrito(producto);
-		monto += producto.precio * producto.cantidad;
-	}
-	totalCarrito.innerHTML = `<span class="monto">Monto a Pagar:</span> $${monto.toLocaleString(
-		"en-US",
-		{
-			minimumFractionDigits: 2,
-		}
-	)}`;
-}
 
 // Función para limpiar el contenedor de productos
 function limpiarContenedor(contenedor) {
@@ -157,8 +143,6 @@ function agregarAlCarrito(productoAAgregar) {
 		);
 	} else {
 		carrito.push(productoAAgregar);
-		// Imprimimos producto en el html
-		imprimirCarrito(productoAAgregar);
 	}
 
 	// Actualizamos el local storage
@@ -183,7 +167,8 @@ function mostrarNotificacionCarrito(productoAAgregar) {
 
 function imprimirCarrito(productoAAgregar) {
 	if (!tablaCarrito) return;
-
+	let precioTotalProducto = productoAAgregar.precio * productoAAgregar.cantidad;
+	console.log(dolarCompra);
 	tablaCarrito.innerHTML += `
   <td>
     <div class="precart-flex">
@@ -193,13 +178,12 @@ function imprimirCarrito(productoAAgregar) {
       <span class="marg-precart">${productoAAgregar.nombre}</span>
     </div>
   </td>
-  <td>
-    $${(productoAAgregar.precio * productoAAgregar.cantidad).toLocaleString(
-			"en-US",
-			{
-				minimumFractionDigits: 2,
-			}
-		)}
+  <td>${dolares ? "U$" : "$"}${(dolares
+		? (precioTotalProducto / parseFloat(dolarCompra)).toFixed(2)
+		: precioTotalProducto
+	).toLocaleString("en-US", {
+		minimumFractionDigits: 2,
+	})}
   </td>
   <td>
       <div class="precart-flex">
@@ -231,20 +215,22 @@ if (tipoMoneda) {
 			dolares = false;
 			imprimirProductosAlContenedor(productos);
 			localStorage.setItem("dolares", false);
+			tablaCarrito ? location.reload() : null;
 		} else {
 			dolares = true;
-			cambiarTipoDeMoneda(dolarCompra);
+			cambiarTipoDeMoneda(dolarCompra, imprimirProductosAlContenedor);
 			localStorage.setItem("dolares", true);
+			tablaCarrito ? location.reload() : null;
 		}
 	});
 }
 
-function cambiarTipoDeMoneda(moneda) {
+function cambiarTipoDeMoneda(moneda, callback) {
 	let productosDiferentePrecio = productos.map((producto) => ({
 		...producto,
 		precio: (producto.precio / parseFloat(moneda)).toFixed(2),
 	}));
-	imprimirProductosAlContenedor(productosDiferentePrecio);
+	callback(productosDiferentePrecio);
 }
 
 async function obtenerValorDolar() {
@@ -258,6 +244,25 @@ async function obtenerValorDolar() {
 
 	// Ejecutamos la impresión de los productos según estado de moneda
 	dolares
-		? cambiarTipoDeMoneda(dolarCompra)
+		? cambiarTipoDeMoneda(dolarCompra, imprimirProductosAlContenedor)
 		: imprimirProductosAlContenedor(productos);
+
+	// Carga del carrito post llegada del precio del dolar
+	if (carrito !== [] && totalCarrito) {
+		let monto = 0;
+		limpiarContenedor(tablaCarrito);
+		for (let producto of carrito) {
+			let precioTotalProducto = producto.precio * producto.cantidad;
+			imprimirCarrito(producto);
+			monto += dolares
+				? precioTotalProducto / parseFloat(dolarCompra)
+				: precioTotalProducto;
+		}
+		totalCarrito.innerHTML = `<span class="monto">Monto a Pagar:</span> ${
+			dolares ? "U$" : "$"
+		}${monto.toFixed(2).toLocaleString("en-US", {
+			minimumFractionDigits: 2,
+		})}`;
+		document.getElementById("loader").className = "hidden";
+	}
 }
