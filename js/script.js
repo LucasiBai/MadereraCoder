@@ -168,7 +168,6 @@ function mostrarNotificacionCarrito(productoAAgregar) {
 function imprimirCarrito(productoAAgregar) {
 	if (!tablaCarrito) return;
 	let precioTotalProducto = productoAAgregar.precio * productoAAgregar.cantidad;
-	console.log(dolarCompra);
 	tablaCarrito.innerHTML += `
   <td>
     <div class="precart-flex">
@@ -263,6 +262,5 @@ async function obtenerValorDolar() {
 		}${monto.toFixed(2).toLocaleString("en-US", {
 			minimumFractionDigits: 2,
 		})}`;
-		document.getElementById("loader").className = "hidden";
 	}
 }

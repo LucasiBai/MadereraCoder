@@ -900,12 +900,12 @@ td {
 }
 .ldio-roqj0b5oic div {
 	animation: ldio-roqj0b5oic 0.5434782608695652s linear infinite;
-	top: 100px;
+	top: 50px;
 	left: 100px;
 }
 .loadingio-spinner-rolling-ypsx32wxth {
 	width: 200px;
-	height: 200px;
+	height: 120px;
 	display: inline-block;
 	overflow: hidden;
 	background: #fcfaf5;
@@ -923,10 +923,6 @@ td {
 }
 .loader {
 	background: #fcfaf5;
-	position: absolute;
-}
-.hidden {
-	display: none;
 }
 
 @media only screen and (min-width: 1700px) {
