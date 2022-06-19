@@ -302,6 +302,18 @@ footer {
 	padding: 1.5rem;
 	font-size: 20px;
 }
+.carrito__vacio--0 {
+	border-right: none;
+}
+.carrito__vacio--1 {
+	border-left: none;
+	border-right: none;
+}
+.carrito__vacio--2 {
+	border-left: none;
+}
+.fila__eliminar {
+}
 .finalizar__compra {
 	max-width: 800px;
 

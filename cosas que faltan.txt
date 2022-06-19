@@ -1,0 +1,11 @@
+guardar tipo de moneda en el local storage y que cambien los precios del carrito
+que aparezca u$ en precio con dolares **********
+corregir el orden por precio en las diferentes categorias
+agregar botón para eliminar producto**empezado
+tener mensaje de carrito vacio **maso
+modificar el precio al modificar cantidad
+
+al finalizar compra borrar los productos del carrito
+mandar a un nuevo html con los productos seleccionados
+
+ordenar codigo

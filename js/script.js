@@ -1,4 +1,6 @@
+// LLamadas al DOM
 const contenedorArticulos = document.getElementById("productosHtml");
+const tablaCarrito = document.querySelector("#productosPrecarrito");
 const totalCarrito = document.querySelector("#montoTotal");
 const tipoMoneda = document.querySelector("#tipoMoneda");
 let dolarCompra;
@@ -7,12 +9,39 @@ window.onload = () => {
 	obtenerValorDolar();
 };
 
+// Estado Moneda
+
+let dolares = JSON.parse(localStorage.getItem("dolares")) || false;
+dolares ? (tipoMoneda.value = "usd") : null;
+
+// Carrito
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+if (carrito !== [] && totalCarrito) {
+	let monto = 0;
+	limpiarContenedor(tablaCarrito);
+	for (let producto of carrito) {
+		imprimirCarrito(producto);
+		monto += producto.precio * producto.cantidad;
+	}
+	totalCarrito.innerHTML = `<span class="monto">Monto a Pagar:</span> $${monto.toLocaleString(
+		"en-US",
+		{
+			minimumFractionDigits: 2,
+		}
+	)}`;
+}
+
+// Función para limpiar el contenedor de productos
+function limpiarContenedor(contenedor) {
+	contenedor.innerHTML = "";
+}
+
 // Función para imprimir los productos
 function imprimirProductosAlContenedor(listaProductos) {
 	// Si no existe el elemento retonamos
 	if (!contenedorArticulos) return;
 	// Limpiamos contenedor
-	limpiarContenedorProductos();
+	limpiarContenedor(contenedorArticulos);
 
 	// Recorremos el array de productos
 	for (let producto of listaProductos) {
@@ -23,9 +52,11 @@ function imprimirProductosAlContenedor(listaProductos) {
     <h3 class="articulos__nombre">${producto.nombre}</h3>
     <h3 class="articulos__clasificacion">${producto.categoria}</h3>
     <div class="articulos__botton-precio">
-      <h3 class="articulos__precio">$${producto.precio.toLocaleString("en-US", {
-				minimumFractionDigits: 2,
-			})}</h3>
+      <h3 class="articulos__precio">${
+				dolares ? "U$" : "$"
+			}${producto.precio.toLocaleString("en-US", {
+			minimumFractionDigits: 2,
+		})}</h3>
       <button class="button button__carrito" id="agregarCarrito${producto.id}">
       Agregar al Carrito
       </button>
@@ -41,97 +72,6 @@ function imprimirProductosAlContenedor(listaProductos) {
 				agregarAlCarrito(producto);
 			});
 	});
-}
-
-// Carrito
-let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-if (carrito != [] && totalCarrito) {
-	let monto = 0;
-	for (let producto of carrito) {
-		imprimirCarrito(producto);
-		monto += producto.precio * producto.cantidad;
-	}
-	totalCarrito.innerHTML = `<span class="monto">Monto a Pagar:</span> $${monto.toLocaleString(
-		"en-US",
-		{
-			minimumFractionDigits: 2,
-		}
-	)}`;
-}
-
-// Agregar al carrito
-function agregarAlCarrito(productoAAgregar) {
-	// Notificación de carga al carrito
-	mostrarNotificacionCarrito(productoAAgregar);
-	let encontrado = carrito.find(({ id }) => id == productoAAgregar.id);
-	// condicional para no agregar de nuevo
-	if (encontrado) {
-		carrito.map((producto) =>
-			producto.id == productoAAgregar.id ? (producto.cantidad += 1) : null
-		);
-	} else {
-		carrito.push(productoAAgregar);
-		// Imprimimos producto en el html
-		imprimirCarrito(productoAAgregar);
-	}
-
-	// Actualizamos el local storage
-	localStorage.setItem("carrito", JSON.stringify(carrito));
-}
-
-function mostrarNotificacionCarrito(productoAAgregar) {
-	Toastify({
-		text: `Has agregado ${productoAAgregar.nombre} al carrito.`,
-		offset: {
-			x: 50,
-			y: 60,
-		},
-		position: "right",
-		duration: 2000,
-		style: {
-			background: "linear-gradient(to right, #de8500, #c97900)",
-		},
-	}).showToast();
-}
-
-function imprimirCarrito(productoAAgregar) {
-	const element = document.querySelector("#productosPrecarrito");
-
-	if (!element) return;
-
-	element.innerHTML += `
-  <td>
-    <div class="precart-flex">
-      <img src="${productoAAgregar.img}" alt="${
-		productoAAgregar.nombre
-	}" class="carrito__img marg-precart"/>
-      <span class="marg-precart">${productoAAgregar.nombre}</span>
-    </div>
-  </td>
-  <td>
-    $${(productoAAgregar.precio * productoAAgregar.cantidad).toLocaleString(
-			"en-US",
-			{
-				minimumFractionDigits: 2,
-			}
-		)}
-  </td>
-  <td>
-    <input type="number" class="contform select__margin" value="${
-			productoAAgregar.cantidad
-		}" id="cant${productoAAgregar.id}" />
-  </td> 
-`;
-}
-
-// Seguir con esto
-// function eliminarDelCarrito(producto.id){
-//   carrito.
-// }
-
-// Función para limpiar el contenedor de productos
-function limpiarContenedorProductos() {
-	contenedorArticulos.innerHTML = "";
 }
 
 // Función filtrar
@@ -205,6 +145,81 @@ if (selectorOrden) {
 	});
 }
 
+// Agregar al carrito
+function agregarAlCarrito(productoAAgregar) {
+	// Notificación de carga al carrito
+	mostrarNotificacionCarrito(productoAAgregar);
+	// condicional para no agregar de nuevo
+	let encontrado = carrito.find(({ id }) => id == productoAAgregar.id);
+	if (encontrado) {
+		carrito.map((producto) =>
+			producto.id == productoAAgregar.id ? (producto.cantidad += 1) : null
+		);
+	} else {
+		carrito.push(productoAAgregar);
+		// Imprimimos producto en el html
+		imprimirCarrito(productoAAgregar);
+	}
+
+	// Actualizamos el local storage
+	localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// Notificación de producto agregado al carrito
+function mostrarNotificacionCarrito(productoAAgregar) {
+	Toastify({
+		text: `Has agregado ${productoAAgregar.nombre} al carrito.`,
+		offset: {
+			x: 50,
+			y: 60,
+		},
+		position: "right",
+		duration: 2000,
+		style: {
+			background: "linear-gradient(to right, #de8500, #c97900)",
+		},
+	}).showToast();
+}
+
+function imprimirCarrito(productoAAgregar) {
+	if (!tablaCarrito) return;
+
+	tablaCarrito.innerHTML += `
+  <td>
+    <div class="precart-flex">
+      <img src="${productoAAgregar.img}" alt="${
+		productoAAgregar.nombre
+	}" class="carrito__img marg-precart"/>
+      <span class="marg-precart">${productoAAgregar.nombre}</span>
+    </div>
+  </td>
+  <td>
+    $${(productoAAgregar.precio * productoAAgregar.cantidad).toLocaleString(
+			"en-US",
+			{
+				minimumFractionDigits: 2,
+			}
+		)}
+  </td>
+  <td>
+      <div class="precart-flex">
+      <input type="number" class="contform select__margin" value="${
+				productoAAgregar.cantidad
+			}" id="cant${productoAAgregar.id}" />
+      <a id="botonEliminar${
+				productoAAgregar.id
+			}"><img src="https://icongr.am/entypo/trash.svg?size=30&color=currentColor" class="boton__eliminar">
+      </a>  
+      </div>
+  </td> 
+`;
+}
+
+// Seguir con esto
+// function eliminarDelCarrito(producto.id){
+//   carrito.
+// }
+
 // Selector tipo moneda
 // Si existe elemento, agregamos evento
 if (tipoMoneda) {
@@ -212,9 +227,15 @@ if (tipoMoneda) {
 		// Selección de tipo
 		const monedaSeleccionada = e.target.value;
 		// Determinamos la acción
-		monedaSeleccionada == "ars"
-			? imprimirProductosAlContenedor(productos)
-			: cambiarTipoDeMoneda(dolarCompra);
+		if (monedaSeleccionada == "ars") {
+			dolares = false;
+			imprimirProductosAlContenedor(productos);
+			localStorage.setItem("dolares", false);
+		} else {
+			dolares = true;
+			cambiarTipoDeMoneda(dolarCompra);
+			localStorage.setItem("dolares", true);
+		}
 	});
 }
 
@@ -223,7 +244,6 @@ function cambiarTipoDeMoneda(moneda) {
 		...producto,
 		precio: (producto.precio / parseFloat(moneda)).toFixed(2),
 	}));
-	console.log(productosDiferentePrecio);
 	imprimirProductosAlContenedor(productosDiferentePrecio);
 }
 
@@ -236,6 +256,8 @@ async function obtenerValorDolar() {
 	const dolarBlue = data.find((dolar) => dolar.casa.nombre == "Dolar Blue");
 	dolarCompra = dolarBlue.casa.compra;
 
-	// Ejecutamos la impresión de los productos
-	imprimirProductosAlContenedor(productos);
+	// Ejecutamos la impresión de los productos según estado de moneda
+	dolares
+		? cambiarTipoDeMoneda(dolarCompra)
+		: imprimirProductosAlContenedor(productos);
 }
