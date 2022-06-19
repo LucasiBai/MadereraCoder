@@ -24,6 +24,9 @@ ul {
 
 .header {
 	background-color: #555b53;
+	position: sticky;
+	top: 0;
+	z-index: 100000;
 }
 
 .iso {

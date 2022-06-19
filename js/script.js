@@ -110,6 +110,9 @@ if (selectorCategorias) {
 	});
 }
 
+let estadoCarga = JSON.parse(sessionStorage.getItem("estadoCarga"));
+console.log(estadoCarga);
+
 // Selector de orden
 const selectorOrden = document.getElementById("selectorOrden");
 // Evento para cambiar orden
