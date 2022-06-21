@@ -3,6 +3,7 @@ const contenedorArticulos = document.getElementById("productosHtml");
 const tablaCarrito = document.querySelector("#productosPrecarrito");
 const totalCarrito = document.querySelector("#montoTotal");
 const tipoMoneda = document.querySelector("#tipoMoneda");
+const finalizarCompra = document.getElementById("finalizarCompra");
 let dolarCompra;
 
 window.onload = () => {
@@ -110,9 +111,6 @@ if (selectorCategorias) {
 	});
 }
 
-let estadoCarga = JSON.parse(sessionStorage.getItem("estadoCarga"));
-console.log(estadoCarga);
-
 // Selector de orden
 const selectorOrden = document.getElementById("selectorOrden");
 // Evento para cambiar orden
@@ -192,7 +190,7 @@ function imprimirCarrito(productoAAgregar) {
       <input type="number" class="contform select__margin" value="${
 				productoAAgregar.cantidad
 			}" id="cant${productoAAgregar.id}" />
-      <a id="botonEliminar${
+      <a class="button button__moneda" id="botonEliminar${
 				productoAAgregar.id
 			}"><img src="https://icongr.am/entypo/trash.svg?size=30&color=currentColor" class="boton__eliminar">
       </a>  
@@ -201,9 +199,38 @@ function imprimirCarrito(productoAAgregar) {
 `;
 }
 
+function eliminarProductoDelCarrito(producto) {
+	let encontrado = carrito.indexOf(producto);
+	carrito.splice(encontrado, 1);
+}
+
+function eliminarProductoDelDOM(producto) {
+	eliminarProductoDelCarrito(producto);
+	limpiarContenedor(tablaCarrito);
+	carrito.forEach((producto) => {
+		imprimirCarrito(producto);
+	});
+	darUtilidadCarrito();
+	localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
 // Seguir con esto
-// function eliminarDelCarrito(producto.id){
-//   carrito.
+function cambiarCantidadProductoCarrito(e) {
+	const cantidad = e.target;
+	cantidad.value <= 0 ? (cantidad.value = 1) : null;
+	limpiarContenedor(tablaCarrito);
+	carrito.forEach((producto) => {
+		imprimirCarrito(producto);
+	});
+	darUtilidadCarrito();
+	localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+// // Finalizar Compra
+// finalizarCompra.addEventListener("click", eliminarProductosDelCarrito);
+// // eliminar todos los productos del carrito
+// function eliminarProductosDelCarrito() {
+// 	localStorage.removeItem("carrito");
+// 	window.open("../index.html");
 // }
 
 // Selector tipo moneda
@@ -265,5 +292,20 @@ async function obtenerValorDolar() {
 		}${monto.toFixed(2).toLocaleString("en-US", {
 			minimumFractionDigits: 2,
 		})}`;
+		darUtilidadCarrito();
 	}
+}
+
+function darUtilidadCarrito() {
+	carrito.forEach((producto) => {
+		document
+			.getElementById(`botonEliminar${producto.id}`)
+			.addEventListener("click", () => eliminarProductoDelDOM(producto));
+
+		document
+			.getElementById(`cant${producto.id}`)
+			.addEventListener("change", (e) => {
+				cambiarCantidadProductoCarrito(e);
+			});
+	});
 }
