@@ -4,8 +4,7 @@ corregir el orden por precio en las diferentes categorias
 agregar botón para eliminar producto********
 tener mensaje de carrito vacio
 modificar el precio al modificar cantidad**********
-----cuando selecciono en dolares y entro al carrito en pesos, se cargan los precios como dolares
-subir siempre como peso para evitar ese problema----
+
 
 al finalizar compra borrar los productos del carrito
 mandar a un nuevo html con los productos seleccionados

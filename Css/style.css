@@ -372,11 +372,6 @@ footer {
 	border-radius: 10px;
 	object-fit: cover;
 }
-.carrito__img:hover {
-	filter: blur(1px);
-	-webkit-filter: blur(1px);
-	cursor: pointer;
-}
 
 .text__carrito {
 	color: black;

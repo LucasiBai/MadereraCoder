@@ -137,13 +137,17 @@ function agregarAlCarrito(productoAAgregar) {
 	// Notificación de carga al carrito
 	mostrarNotificacionCarrito(productoAAgregar);
 	// condicional para no agregar de nuevo
-	let encontrado = carrito.find(({ id }) => id == productoAAgregar.id);
+	const encontrado = carrito.find(({ id }) => id == productoAAgregar.id);
+	const productoOriginal = productos.filter(
+		({ id }) => id == productoAAgregar.id
+	);
+	console.log(productoOriginal);
 	if (encontrado) {
 		carrito.map((producto) =>
 			producto.id == productoAAgregar.id ? (producto.cantidad += 1) : null
 		);
 	} else {
-		carrito.push(productoAAgregar);
+		carrito.push(productoOriginal[0]);
 	}
 
 	// Actualizamos el local storage
@@ -189,7 +193,7 @@ function imprimirCarrito(productoAAgregar) {
       <div class="precart-flex">
       <input type="number" class="contform select__margin input__cantidad" value="${
 				productoAAgregar.cantidad
-			}" min="1" id="cant${productoAAgregar.id}" />
+			}" min="1" max="99" id="cant${productoAAgregar.id}" />
       <a class="button button__moneda" id="botonEliminar${
 				productoAAgregar.id
 			}"><img src="https://icongr.am/entypo/trash.svg?size=30&color=currentColor" class="boton__eliminar">
@@ -235,9 +239,13 @@ function actualizarCarrito() {
 	});
 	totalCarrito.innerHTML = `<span class="monto">Monto a Pagar:</span> ${
 		dolares ? "U$" : "$"
-	}${monto.toFixed(2).toLocaleString("en-US", {
-		minimumFractionDigits: 2,
-	})}`;
+	}${
+		dolares
+			? monto.toFixed(2)
+			: monto.toLocaleString("en-US", {
+					minimumFractionDigits: 2,
+			  })
+	}`;
 	darUtilidadCarrito();
 }
 // // Finalizar Compra
