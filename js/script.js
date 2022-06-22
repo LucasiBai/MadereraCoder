@@ -187,9 +187,9 @@ function imprimirCarrito(productoAAgregar) {
   </td>
   <td>
       <div class="precart-flex">
-      <input type="number" class="contform select__margin" value="${
+      <input type="number" class="contform select__margin input__cantidad" value="${
 				productoAAgregar.cantidad
-			}" id="cant${productoAAgregar.id}" />
+			}" min="1" id="cant${productoAAgregar.id}" />
       <a class="button button__moneda" id="botonEliminar${
 				productoAAgregar.id
 			}"><img src="https://icongr.am/entypo/trash.svg?size=30&color=currentColor" class="boton__eliminar">
@@ -206,24 +206,39 @@ function eliminarProductoDelCarrito(producto) {
 
 function eliminarProductoDelDOM(producto) {
 	eliminarProductoDelCarrito(producto);
-	limpiarContenedor(tablaCarrito);
-	carrito.forEach((producto) => {
-		imprimirCarrito(producto);
-	});
-	darUtilidadCarrito();
+	actualizarCarrito();
 	localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 // Seguir con esto
-function cambiarCantidadProductoCarrito(e) {
+function cambiarCantidadProductoCarrito(e, producto) {
 	const cantidad = e.target;
 	cantidad.value <= 0 ? (cantidad.value = 1) : null;
+	producto.cantidad = parseInt(cantidad.value);
+}
+
+function cambiarCantidadProductoEnDOM(e, producto) {
+	cambiarCantidadProductoCarrito(e, producto);
+	actualizarCarrito();
+	localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function actualizarCarrito() {
+	let monto = 0;
 	limpiarContenedor(tablaCarrito);
 	carrito.forEach((producto) => {
+		let precioTotalProducto = producto.precio * producto.cantidad;
 		imprimirCarrito(producto);
+		monto += dolares
+			? precioTotalProducto / parseFloat(dolarCompra)
+			: precioTotalProducto;
 	});
+	totalCarrito.innerHTML = `<span class="monto">Monto a Pagar:</span> ${
+		dolares ? "U$" : "$"
+	}${monto.toFixed(2).toLocaleString("en-US", {
+		minimumFractionDigits: 2,
+	})}`;
 	darUtilidadCarrito();
-	localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 // // Finalizar Compra
 // finalizarCompra.addEventListener("click", eliminarProductosDelCarrito);
@@ -278,21 +293,7 @@ async function obtenerValorDolar() {
 
 	// Carga del carrito post llegada del precio del dolar
 	if (carrito !== [] && totalCarrito) {
-		let monto = 0;
-		limpiarContenedor(tablaCarrito);
-		for (let producto of carrito) {
-			let precioTotalProducto = producto.precio * producto.cantidad;
-			imprimirCarrito(producto);
-			monto += dolares
-				? precioTotalProducto / parseFloat(dolarCompra)
-				: precioTotalProducto;
-		}
-		totalCarrito.innerHTML = `<span class="monto">Monto a Pagar:</span> ${
-			dolares ? "U$" : "$"
-		}${monto.toFixed(2).toLocaleString("en-US", {
-			minimumFractionDigits: 2,
-		})}`;
-		darUtilidadCarrito();
+		actualizarCarrito();
 	}
 }
 
@@ -305,7 +306,7 @@ function darUtilidadCarrito() {
 		document
 			.getElementById(`cant${producto.id}`)
 			.addEventListener("change", (e) => {
-				cambiarCantidadProductoCarrito(e);
+				cambiarCantidadProductoEnDOM(e, producto);
 			});
 	});
 }

@@ -609,6 +609,10 @@ td {
 	background-color: #f6f3ee;
 	color: black;
 }
+.input__cantidad {
+	width: 2rem;
+	margin-right: 1rem;
+}
 
 @media only screen and (max-width: 768px) {
 	.text__h3 {
