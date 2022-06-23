@@ -72,6 +72,7 @@ const productosHabitacion = filtrarProductos("Habitación");
 const productosSillasYSillones = filtrarProductos("Sillas y Sillones");
 const productosMesasYRatoneras = filtrarProductos("Mesas y Ratoneras");
 
+let categoriaCargada;
 // Llamamos a los selectores
 // Selector de categorías
 const selectorCategorias = document.getElementById("selectorCategorias");
@@ -85,30 +86,31 @@ if (selectorCategorias) {
 		// Imprimimos la categoria seleccionada
 		switch (categoriaSeleccionada) {
 			case "escritorios":
-				imprimirProductosAlContenedor(productosEscritorios);
-				sessionStorage.setItem("estadoCarga", "productosEscritorios");
+				cargarCategoriaSegunMoneda(productosEscritorios);
 				break;
 			case "estanterias":
-				imprimirProductosAlContenedor(productosEstanterias);
-				sessionStorage.setItem("estadoCarga", "productosEstanterias");
+				cargarCategoriaSegunMoneda(productosEstanterias);
 				break;
 			case "habitacion":
-				imprimirProductosAlContenedor(productosHabitacion);
-				sessionStorage.setItem("estadoCarga", "productosHabitacion");
+				cargarCategoriaSegunMoneda(productosHabitacion);
 				break;
 			case "sillasysillones":
-				imprimirProductosAlContenedor(productosSillasYSillones);
-				sessionStorage.setItem("estadoCarga", "productosSillasYSillones");
+				cargarCategoriaSegunMoneda(productosSillasYSillones);
 				break;
 			case "mesasyratoneras":
-				imprimirProductosAlContenedor(productosMesasYRatoneras);
-				sessionStorage.setItem("estadoCarga", "productosMesasYRatoneras");
+				cargarCategoriaSegunMoneda(productosMesasYRatoneras);
 				break;
 			default:
-				imprimirProductosAlContenedor(productos);
-				sessionStorage.setItem("estadoCarga", "productos");
+				cargarCategoriaSegunMoneda(productos);
 		}
 	});
+}
+
+function cargarCategoriaSegunMoneda(productos) {
+	dolares
+		? cambiarTipoDeMoneda(dolarCompra, productos)
+		: imprimirProductosAlContenedor(productos);
+	categoriaCargada = productos;
 }
 
 // Selector de orden
@@ -122,13 +124,13 @@ if (selectorOrden) {
 		// Imprimimos la categoria seleccionada
 		ordenSeleccionado == "maM"
 			? imprimirProductosAlContenedor(
-					productos.sort((a, b) => a.precio - b.precio)
+					categoriaCargada.sort((a, b) => a.precio - b.precio)
 			  )
 			: ordenSeleccionado == "Mam"
 			? imprimirProductosAlContenedor(
-					productos.sort((a, b) => b.precio - a.precio)
+					categoriaCargada.sort((a, b) => b.precio - a.precio)
 			  )
-			: imprimirProductosAlContenedor(productos);
+			: imprimirProductosAlContenedor(categoriaCargada);
 	});
 }
 
@@ -141,7 +143,6 @@ function agregarAlCarrito(productoAAgregar) {
 	const productoOriginal = productos.filter(
 		({ id }) => id == productoAAgregar.id
 	);
-	console.log(productoOriginal);
 	if (encontrado) {
 		carrito.map((producto) =>
 			producto.id == productoAAgregar.id ? (producto.cantidad += 1) : null
@@ -248,6 +249,7 @@ function actualizarCarrito() {
 	}`;
 	darUtilidadCarrito();
 }
+
 // // Finalizar Compra
 // finalizarCompra.addEventListener("click", eliminarProductosDelCarrito);
 // // eliminar todos los productos del carrito
@@ -265,24 +267,24 @@ if (tipoMoneda) {
 		// Determinamos la acción
 		if (monedaSeleccionada == "ars") {
 			dolares = false;
-			imprimirProductosAlContenedor(productos);
+			imprimirProductosAlContenedor(categoriaCargada);
 			localStorage.setItem("dolares", false);
 			tablaCarrito ? location.reload() : null;
 		} else {
 			dolares = true;
-			cambiarTipoDeMoneda(dolarCompra, imprimirProductosAlContenedor);
+			cambiarTipoDeMoneda(dolarCompra, categoriaCargada);
 			localStorage.setItem("dolares", true);
 			tablaCarrito ? location.reload() : null;
 		}
 	});
 }
 
-function cambiarTipoDeMoneda(moneda, callback) {
+function cambiarTipoDeMoneda(moneda, productos) {
 	let productosDiferentePrecio = productos.map((producto) => ({
 		...producto,
 		precio: (producto.precio / parseFloat(moneda)).toFixed(2),
 	}));
-	callback(productosDiferentePrecio);
+	imprimirProductosAlContenedor(productosDiferentePrecio);
 }
 
 async function obtenerValorDolar() {
@@ -296,7 +298,7 @@ async function obtenerValorDolar() {
 
 	// Ejecutamos la impresión de los productos según estado de moneda
 	dolares
-		? cambiarTipoDeMoneda(dolarCompra, imprimirProductosAlContenedor)
+		? cambiarTipoDeMoneda(dolarCompra, productos)
 		: imprimirProductosAlContenedor(productos);
 
 	// Carga del carrito post llegada del precio del dolar
