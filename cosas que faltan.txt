@@ -6,7 +6,7 @@ tener mensaje de carrito vacio
 modificar el precio al modificar cantidad**********
 
 
-al finalizar compra borrar los productos del carrito
+al finalizar compra borrar los productos del carrito** a medio implementar
 mandar a un nuevo html con los productos seleccionados
 
 ordenar codigo y refactorizar

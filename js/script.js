@@ -72,7 +72,7 @@ const productosHabitacion = filtrarProductos("Habitación");
 const productosSillasYSillones = filtrarProductos("Sillas y Sillones");
 const productosMesasYRatoneras = filtrarProductos("Mesas y Ratoneras");
 
-let categoriaCargada;
+let categoriaCargada = productos;
 // Llamamos a los selectores
 // Selector de categorías
 const selectorCategorias = document.getElementById("selectorCategorias");
