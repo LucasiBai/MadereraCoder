@@ -626,6 +626,11 @@ td {
 .compra__item {
 	margin: 0.7rem;
 }
+.check__img {
+	width: 5rem;
+	height: auto;
+	margin: 1rem;
+}
 
 @media only screen and (max-width: 768px) {
 	.text__h3 {
