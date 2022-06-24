@@ -250,14 +250,6 @@ function actualizarCarrito() {
 	darUtilidadCarrito();
 }
 
-// // Finalizar Compra
-// finalizarCompra.addEventListener("click", eliminarProductosDelCarrito);
-// // eliminar todos los productos del carrito
-// function eliminarProductosDelCarrito() {
-// 	localStorage.removeItem("carrito");
-// 	window.open("../index.html");
-// }
-
 // Selector tipo moneda
 // Si existe elemento, agregamos evento
 if (tipoMoneda) {
@@ -304,6 +296,8 @@ async function obtenerValorDolar() {
 	// Carga del carrito post llegada del precio del dolar
 	if (carrito !== [] && totalCarrito) {
 		actualizarCarrito();
+	} else if (carrito === []) {
+		console.log("holi");
 	}
 }
 

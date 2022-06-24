@@ -609,6 +609,24 @@ td {
 	margin-right: 1rem;
 }
 
+.container__compra {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 12rem 0;
+}
+
+.compra__titulo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.compra__item {
+	margin: 0.7rem;
+}
+
 @media only screen and (max-width: 768px) {
 	.text__h3 {
 		font-size: 25px;
@@ -944,5 +962,8 @@ td {
 	}
 	.container__nosotros {
 		grid-template-rows: 300px 550px;
+	}
+	.container__compra {
+		margin: 18rem 0;
 	}
 }

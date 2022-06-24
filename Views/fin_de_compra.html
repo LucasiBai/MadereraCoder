@@ -4,18 +4,15 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- SEO -->
-		<meta
-			name="description"
-			content="Fabricamos y diseñamos piezas únicas para su hogar, con una excelente calidad que garantizan una vida útil prolongada."
-		/>
+		<meta name="description" content="Puedes ver aquí tus artículos." />
 		<meta
 			name="keywords"
 			content="madera diseños a medida calidad muebles gamer escritorio cajonera estanteria cordoba argentina"
 		/>
 		<!-- Título para Browser -->
-		<title>Wood CBA</title>
+		<title>Wood CBA Carrito</title>
 		<!-- Ícono Browser -->
-		<link rel="icon" href="Assets/Img/iso_alternative.ico" />
+		<link rel="icon" href="../Assets/Img/iso_alternative.ico" />
 		<!-- Link íconos -->
 		<link
 			rel="stylesheet"
@@ -31,13 +28,18 @@
 		<!-- Animaciones link css -->
 		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 		<!-- Css Linkeado -->
-		<link rel="stylesheet" href="Css/style.css" />
+		<link rel="stylesheet" href="../Css/style.css" />
 	</head>
-	<body class="container">
+	<body>
 		<header class="header">
 			<!-- Logo del header -->
 			<div>
-				<a href="#"><img src="Assets/Img/iso.png" alt="logo" class="iso" /></a>
+				<a href="../index.html"
+					><img
+						src="../Assets/Img/iso.png"
+						alt="logo"
+						class="iso iso__reducido"
+				/></a>
 			</div>
 			<!-- Barra de navegación -->
 			<nav>
@@ -45,30 +47,26 @@
 					<li
 						class="header__nav--item nav__item--background nav__item--color nav__item--text"
 					>
-						<a href="#" class="nav__item--color nav__item--text">Home</a>
+						<a href="../index.html" class="nav__item--color nav__item--text"
+							>Home</a
+						>
 					</li>
 					<li
 						class="header__nav--item nav__item--background nav__item--color nav__item--text"
 					>
-						<a
-							href="Views/productos.html"
-							class="nav__item--color nav__item--text"
+						<a href="productos.html" class="nav__item--color nav__item--text"
 							>Productos</a
 						>
 					</li>
 					<li
 						class="header__nav--item nav__item--background nav__item--color nav__item--text"
 					>
-						<a
-							href="Views/nosotros.html"
-							class="nav__item--color nav__item--text"
+						<a href="nosotros.html" class="nav__item--color nav__item--text"
 							>Nosotros</a
 						>
 					</li>
 					<li class="header__nav--item nav__item--background">
-						<a
-							href="Views/contacto.html"
-							class="nav__item--color nav__item--text"
+						<a href="contacto.html" class="nav__item--color nav__item--text"
 							>Contacto</a
 						>
 					</li>
@@ -76,70 +74,47 @@
 					<li
 						class="header__nav--item nav__item--background nav__item--color nav__item--text"
 					>
-						<a
-							href="Views/carrito.html"
-							class="nav__item--color nav__item--text"
+						<a href="#" class="nav__item--color nav__item--text"
 							>Carrito<i class="fas fa-cart-plus"></i
 						></a>
+					</li>
+					<li>
+						<select class="button button__moneda" id="tipoMoneda">
+							<option value="ars">ARS</option>
+							<option value="usd">USD</option>
+						</select>
 					</li>
 				</ul>
 			</nav>
 		</header>
-		<!-- Fin del header -->
-		<!-- Comienzo del contenido -->
-		<main class="main">
-			<!-- Imagen de Inicio -->
-			<section
-				class="img"
-				data-aos="fade-right"
-				data-aos-anchor-placement="top-bottom"
-				data-aos-duration="1100"
-			>
-				<img
-					src="Assets/Img/mueble1.jpg"
-					alt="mueble_muestra"
-					class="card card__image"
+		<main class="container__compra">
+			<div class="compra__item compra__titulo">
+				<h1 class="compra__item--titulo">Tu compra fue realizada con éxito!</h1>
+				<h2 class="compra__item--titulo">Gracias por elegirnos</h2>
+			</div>
+			<h4 class="compra__item">
+				En un plazo de 3 días hábiles se estará mandando su pedido.
+			</h4>
+			<div class="compra__item">
+				<input
+					type="button"
+					value="<< Seguir Comprando"
+					class="button"
+					id="seguirComprando"
 				/>
-			</section>
-			<!-- Texto Inicio -->
-			<div
-				class="main__section"
-				data-aos="fade-left"
-				data-aos-anchor-placement="top-bottom"
-				data-aos-duration="1100"
-			>
-				<!-- Logo -->
-				<div class="main__section--isoh1">
-					<img
-						src="Assets/Img/iso_logo.png"
-						alt="logowood"
-						class="main__iso card__article--position"
-					/>
-					<h1
-						align="center"
-						class="text__tittle card__text--font card__article--position"
-					>
-						DISEÑOS<br />A MEDIDA
-					</h1>
-				</div>
-				<div>
-					<p class="text__description card__text--font card__article--position">
-						Fabricamos y diseñamos piezas únicas para su hogar, con una
-						excelente calidad que garantizan una vida útil prolongada.
-					</p>
-					<!-- Botón para ir a los productos -->
-					<button class="button" type="button" id="button__index">
-						Ver Productos
-					</button>
-				</div>
+				<input
+					type="button"
+					value="<< Volver a la página Principal"
+					class="button"
+					id="paginaPrincipal"
+				/>
 			</div>
 		</main>
-		<!-- Comienzo del footer -->
 		<footer class="foo__css">
 			<!-- Footer Logo -->
 			<div class="foo__iso foo__center">
-				<a href="#"
-					><img src="Assets/Img/iso.png" alt="logo" class="iso__foo"
+				<a href="../index.html"
+					><img src="../Assets/Img/iso.png" alt="logo" class="iso__foo"
 				/></a>
 			</div>
 			<div class="foo__redes foo__center">
@@ -182,7 +157,7 @@
 				</ul>
 			</div>
 			<div class="foo__contacto foo__center">
-				<h4><a href="Views/contacto.html" class="foo__font">Contacto</a></h4>
+				<h4><a href="../Views/contacto.html" class="foo__font">Contacto</a></h4>
 				<ul class="foo__redes--items">
 					<li class="foo__font">
 						<img
@@ -199,6 +174,8 @@
 		<script>
 			AOS.init();
 		</script>
-		<script src="./js/boton-index.js"></script>
+		<!-- JS Propio -->
+		<!-- Script -->
+		<script src="../js/finalizacion-de-compra.js"></script>
 	</body>
 </html>
