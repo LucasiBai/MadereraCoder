@@ -87,21 +87,27 @@ if (selectorCategorias) {
 		switch (categoriaSeleccionada) {
 			case "escritorios":
 				cargarCategoriaSegunMoneda(productosEscritorios);
+				selectorOrden.value = "none";
 				break;
 			case "estanterias":
 				cargarCategoriaSegunMoneda(productosEstanterias);
+				selectorOrden.value = "none";
 				break;
 			case "habitacion":
 				cargarCategoriaSegunMoneda(productosHabitacion);
+				selectorOrden.value = "none";
 				break;
 			case "sillasysillones":
 				cargarCategoriaSegunMoneda(productosSillasYSillones);
+				selectorOrden.value = "none";
 				break;
 			case "mesasyratoneras":
 				cargarCategoriaSegunMoneda(productosMesasYRatoneras);
+				selectorOrden.value = "none";
 				break;
 			default:
 				cargarCategoriaSegunMoneda(productos);
+				selectorOrden.value = "none";
 		}
 	});
 }
