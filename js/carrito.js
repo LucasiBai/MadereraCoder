@@ -94,11 +94,32 @@ function imprimirCarritoCompleto() {
 }
 
 // Finalizar Compra
-finalizarCompra.addEventListener("click", eliminarTodosLosProductosDelCarrito);
+finalizarCompra.addEventListener("click", ejecutarBotonFinalizarCompra);
+// Validacion del boton
+function ejecutarBotonFinalizarCompra() {
+	carrito[0] == undefined
+		? mostrarNotificacionCarritoVacio()
+		: eliminarTodosLosProductosDelCarrito();
+}
 // eliminar todos los productos del carrito
 function eliminarTodosLosProductosDelCarrito() {
 	localStorage.removeItem("carrito");
 	location.href = "./fin_de_compra.html";
+}
+// Alerta de carrito vacio
+function mostrarNotificacionCarritoVacio() {
+	Toastify({
+		text: "El carrito se encuentra vacio.",
+		offset: {
+			x: 50,
+			y: 60,
+		},
+		position: "right",
+		duration: 850,
+		style: {
+			background: "linear-gradient(to right, #9f0505, #bb3232)",
+		},
+	}).showToast();
 }
 
 function carritoVacio() {
