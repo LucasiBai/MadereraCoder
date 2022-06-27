@@ -10,3 +10,6 @@ al finalizar compra borrar los productos del carrito****
 mandar a un nuevo html con los productos seleccionados********
 
 ordenar codigo y refactorizar
+
+corregir bug en dolares al ordenar por precio ** faltaría que no deforme la array actual
+agregar validacion al finalizar compra

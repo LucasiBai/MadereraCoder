@@ -79,32 +79,32 @@ selectorCategorias.addEventListener("change", (e) => {
 	// Imprimimos la categoria seleccionada
 	switch (categoriaSeleccionada) {
 		case "escritorios":
-			cargarCategoriaSegunMoneda(productosEscritorios);
+			imprimirProductosSegunMoneda(productosEscritorios);
 			selectorOrden.value = "none";
 			break;
 		case "estanterias":
-			cargarCategoriaSegunMoneda(productosEstanterias);
+			imprimirProductosSegunMoneda(productosEstanterias);
 			selectorOrden.value = "none";
 			break;
 		case "habitacion":
-			cargarCategoriaSegunMoneda(productosHabitacion);
+			imprimirProductosSegunMoneda(productosHabitacion);
 			selectorOrden.value = "none";
 			break;
 		case "sillasysillones":
-			cargarCategoriaSegunMoneda(productosSillasYSillones);
+			imprimirProductosSegunMoneda(productosSillasYSillones);
 			selectorOrden.value = "none";
 			break;
 		case "mesasyratoneras":
-			cargarCategoriaSegunMoneda(productosMesasYRatoneras);
+			imprimirProductosSegunMoneda(productosMesasYRatoneras);
 			selectorOrden.value = "none";
 			break;
 		default:
-			cargarCategoriaSegunMoneda(productos);
+			imprimirProductosSegunMoneda(productos);
 			selectorOrden.value = "none";
 	}
 });
 
-function cargarCategoriaSegunMoneda(productos) {
+function imprimirProductosSegunMoneda(productos) {
 	dolares
 		? cambiarTipoDeMoneda(dolarCompra, productos)
 		: imprimirProductosAlContenedor(productos);
@@ -119,14 +119,14 @@ selectorOrden.addEventListener("change", (e) => {
 	const ordenSeleccionado = e.target.value;
 	// Imprimimos la categoria seleccionada
 	ordenSeleccionado == "maM"
-		? imprimirProductosAlContenedor(
+		? imprimirProductosSegunMoneda(
 				categoriaCargada.sort((a, b) => a.precio - b.precio)
 		  )
 		: ordenSeleccionado == "Mam"
-		? imprimirProductosAlContenedor(
+		? imprimirProductosSegunMoneda(
 				categoriaCargada.sort((a, b) => b.precio - a.precio)
 		  )
-		: imprimirProductosAlContenedor(categoriaCargada);
+		: imprimirProductosSegunMoneda(categoriaCargada);
 });
 
 // Agregar al carrito
