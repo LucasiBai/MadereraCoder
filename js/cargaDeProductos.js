@@ -67,7 +67,7 @@ const productosHabitacion = filtrarProductos("Habitación");
 const productosSillasYSillones = filtrarProductos("Sillas y Sillones");
 const productosMesasYRatoneras = filtrarProductos("Mesas y Ratoneras");
 
-let categoriaCargada = productos;
+let categoriaCargada = [...productos];
 // Llamamos a los selectores
 // Selector de categorías
 const selectorCategorias = document.getElementById("selectorCategorias");
@@ -108,7 +108,7 @@ function imprimirProductosSegunMoneda(productos) {
 	dolares
 		? cambiarTipoDeMoneda(dolarCompra, productos)
 		: imprimirProductosAlContenedor(productos);
-	categoriaCargada = productos;
+	categoriaCargada = [...productos];
 }
 
 // Selector de orden
